@@ -1,0 +1,13 @@
+<!ENTITY pointer-namespace "http://slcf/templates/settings/bem-scheme/pointer">
+<!ENTITY template-namespace "http://slcf/templates/settings/bem-scheme/template">
+<!ENTITY data-namespace "http://slcf/templates/settings/bem-scheme/data">
+<!ENTITY block-namespace "http://slcf/templates/settings/bem-scheme/block">
+<!ENTITY element-namespace "http://slcf/templates/settings/bem-scheme/element">
+<!ENTITY additional-namespace "http://slcf/templates/settings/bem-scheme/additional">
+<!ENTITY modification-namespace "http://slcf/templates/settings/bem-scheme/modification">
+<!ENTITY xhtml-namespace "http://slcf/templates/settings/bem-scheme/xhtml">
+<!ENTITY unknown-namespace "http://slcf/templates/settings/bem-scheme/unknown-namespace">
+<!ENTITY legacy-xhtml-namespace "http://slcf/templates/settings/bem-scheme/additional-legacy-xhtml-class">
+
+<!ENTITY nbsp "&#160;">
+<!ENTITY copy "&#151;">

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates
+	xmlns:a="http://slcf/templates/settings/bem-scheme/additional"
+	xmlns:b="http://slcf/templates/settings/bem-scheme/block"
+	xmlns:d="http://slcf/templates/settings/bem-scheme/data"
+	xmlns:e="http://slcf/templates/settings/bem-scheme/element"
+	xmlns:p="http://slcf/templates/settings/bem-scheme/pointer"
+	xmlns:m="http://slcf/templates/settings/bem-scheme/modification"
+	xmlns:t="http://slcf/templates/settings/bem-scheme/template"
+	xmlns:x="http://slcf/templates/settings/bem-scheme/xhtml"
+	xmlns:un="http://slcf/templates/settings/bem-scheme/unknown-namespace"
+	xmlns:alxc="http://slcf/templates/settings/bem-scheme/additional-legacy-xhtml-class"
+	>
+
+<t:xdocument>
+<b:xdocument>
+	<e:head>
+		<p:xmeta/>
+		<e:title><p:xtitle>Page Title</p:xtitle></e:title>
+		
+		<cdata><![CDATA[<script type="text/javascript">document.documentElement.id = "js";</script>]]></cdata>
+
+		<b:xlink><m:favicon/></b:xlink>
+		<p:xstyles/><p:javascript_head/>
+	</e:head>
+	<e:body>
+		<p:content/>
+		<p:javascript_body/>
+	</e:body>
+</b:xdocument>
+</t:xdocument>
+
+	<t:xmeta>
+		<b:xmeta><m:content val="charset"/></b:xmeta>
+		<p:xmeta__keywords/>
+		<p:xmeta__description/>
+		<p:xmeta__viewport/>
+		<cdata><![CDATA[<!--[if IE ]>]]></cdata>
+			<b:xmeta><m:content val="imagetoolbar"/></b:xmeta>
+			<b:xmeta><m:content val="user-agent"/></b:xmeta>
+		<cdata><![CDATA[<![endif]-->]]></cdata>
+	</t:xmeta>
+	<t:xmeta__keywords><b:xmeta><m:content val="keywords"/></b:xmeta></t:xmeta__keywords>
+	<t:xmeta__description><b:xmeta><m:content val="description"/></b:xmeta></t:xmeta__description>
+	<t:xmeta__viewport><b:xmeta><m:content val="viewport"/></b:xmeta></t:xmeta__viewport>
+
+<t:xtitle><p:content/></t:xtitle>
+
+<t:xstyles>
+	<p:xstyles_dev/>
+</t:xstyles>
+
+	<t:xstyles_dev>
+		<b:xlink x:href="css/styles.css"><m:style/></b:xlink>
+		<p:content/>
+		<cdata><![CDATA[<!--[if IE 9 ]>]]></cdata>
+			<b:xlink x:href="css/ie9.css"><m:style/></b:xlink>
+		<cdata><![CDATA[<![endif]-->]]></cdata>
+		<cdata><![CDATA[<!--[if IE 8 ]>]]></cdata>
+			<b:xlink x:href="css/ie8.css"><m:style/></b:xlink>
+		<cdata><![CDATA[<![endif]-->]]></cdata>
+		<cdata><![CDATA[<!--[if lt IE 8 ]>]]></cdata>
+			<b:xlink x:href="css/ie.css"><m:style/></b:xlink>
+		<cdata><![CDATA[<![endif]-->]]></cdata>
+	</t:xstyles_dev>
+
+	<t:xstyles_production>
+		<b:xlink x:href="css/template_styles.css"><m:style/></b:xlink>
+		<p:content/>
+		<cdata><![CDATA[<!--[if IE 9 ]>]]></cdata>
+			<b:xlink x:href="css/ie9.css"><m:style/></b:xlink>
+		<cdata><![CDATA[<![endif]-->]]></cdata>
+		<cdata><![CDATA[<!--[if IE 8 ]>]]></cdata>
+			<b:xlink x:href="css/ie8.css"><m:style/></b:xlink>
+		<cdata><![CDATA[<![endif]-->]]></cdata>
+		<cdata><![CDATA[<!--[if lt IE 8 ]>]]></cdata>
+			<b:xlink x:href="css/template_styles_ie.css"><m:style/></b:xlink>
+		<cdata><![CDATA[<![endif]-->]]></cdata>
+	</t:xstyles_production>
+
+	<t:javascript_head>
+		<p:content/>
+	</t:javascript_head>
+
+	<t:javascript_body>
+		<b:xscript x:src="js/jquery.min.js"/>
+		<p:content/>
+	</t:javascript_body>
+
+</templates>

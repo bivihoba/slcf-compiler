@@ -1,0 +1,2771 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xml" href="../utilities/master.xsl"?>
+<page
+		xmlns:a="http://slcf/templates/settings/bem-scheme/additional"
+		xmlns:b="http://slcf/templates/settings/bem-scheme/block"
+		xmlns:d="http://slcf/templates/settings/bem-scheme/data"
+		xmlns:e="http://slcf/templates/settings/bem-scheme/element"
+		xmlns:p="http://slcf/templates/settings/bem-scheme/pointer"
+		xmlns:m="http://slcf/templates/settings/bem-scheme/modification"
+		xmlns:t="http://slcf/templates/settings/bem-scheme/template"
+		xmlns:x="http://slcf/templates/settings/bem-scheme/xhtml"
+		xmlns:alxc="http://slcf/templates/settings/bem-scheme/additional-legacy-xhtml-class"
+		>
+	<project>
+		<include xmlns="http://www.w3.org/2001/XInclude" href="../settings/settings.xml"/>
+		<include xmlns="http://www.w3.org/2001/XInclude" href="../data-sources/test-data.xml"/>
+	</project>
+	<meta>
+		<description>тест-кейсы</description>
+	</meta>
+	<title handle="tests">Тесты</title>
+
+		<templates>
+			<t:bla_local>
+				<b:bla>
+					<m:type val="local"/>
+					<p:content/>
+				</b:bla>
+			</t:bla_local>
+
+			<t:bla_local-type type="red">
+				<b:bla>
+					<m:type val="green"/>
+					<p:content/>
+				</b:bla>
+			</t:bla_local-type>
+
+			<t:bla_local-type-b type="left">
+				<b:bla>
+					<m:type val="right"/>
+					<p:content/>
+				</b:bla>
+			</t:bla_local-type-b>
+
+			<t:bla-content>
+				<b:bla-content>
+					<p:content/>
+				</b:bla-content>
+			</t:bla-content>
+
+			<t:bla-content_local-exlusive>
+				<b:bla-content>
+					<p:content/>
+				</b:bla-content>
+			</t:bla-content_local-exlusive>
+
+			<p:bla-content>
+				content bla-bla-bla
+			</p:bla-content>
+
+			<t:bla-content_local-exlusive>
+				content bla-bla-bla
+			</t:bla-content_local-exlusive>
+
+			<t:local-cabbage>
+				<b:local-cabbage>
+					<p:local-cabbage-layer-1>
+						<p:local-cabbage-layer-2>
+							<p:local-cabbage-layer-3/>
+						</p:local-cabbage-layer-2>
+					</p:local-cabbage-layer-1>
+				</b:local-cabbage>
+			</t:local-cabbage>
+
+			<t:local-cabbage-layer-1>
+				<b:local-cabbage-layer-1>
+					1
+					<p:content/>
+				</b:local-cabbage-layer-1>
+			</t:local-cabbage-layer-1>
+			<t:local-cabbage-layer-2>
+				<b:local-cabbage-layer-2>
+					2
+					<p:content/>
+				</b:local-cabbage-layer-2>
+			</t:local-cabbage-layer-2>
+			<t:local-cabbage-layer-3>
+				<b:local-cabbage-layer-3>
+					3
+					<p:content/>
+				</b:local-cabbage-layer-3>
+			</t:local-cabbage-layer-3>
+
+		</templates>
+
+		<page-canvas>
+				<tests>
+				<!-- Шаблоны > -->
+
+					<!--comment for running check-script -->
+					<!--<test>-->
+						<!--<doc>T15. Вызов шаблона при условии Т14 - Вставка контента в локально-переопределенный шаблон</doc>-->
+						<!--<source>-->
+							<!--<p:bla-content>-->
+								<!--page-canvas content-->
+							<!--</p:bla-content>-->
+						<!--</source>-->
+						<!--<html>-->
+							<!--<cdata><![CDATA[-->
+								<!--<div class="b-bla-content">content bla-bla-bla</div>-->
+							<!--]]></cdata>-->
+						<!--</html>-->
+					<!--</test>-->
+					<!--<test>-->
+						<!--<doc>T14. Вставка контента в локальный шаблон</doc>-->
+						<!--<source>-->
+							<!--<p:bla-content_local-exlusive/>-->
+						<!--</source>-->
+						<!--<html>-->
+							<!--<cdata><![CDATA[-->
+								<!--<div class="b-bla-content">content bla-bla-bla</div>-->
+							<!--]]></cdata>-->
+						<!--</html>-->
+					<!--</test>-->
+
+					<!--<test>-->
+						<!--<doc>T13. Вставка контента в локально-переопределенный шаблон</doc>-->
+						<!--<source>-->
+							<!--<p:bla-content/>-->
+						<!--</source>-->
+						<!--<html>-->
+							<!--<cdata><![CDATA[-->
+								<!--<div class="b-bla-content">content bla-bla-bla</div>-->
+							<!--]]></cdata>-->
+						<!--</html>-->
+					<!--</test>-->
+					<!--<test>-->
+						<!--<doc>T12. Вложенные вызовы шаблонов внутри шаблонов, определенных в templates страницы</doc>-->
+						<!--<source>-->
+							<!--<p:local-cabbage/>-->
+						<!--</source>-->
+						<!--<html>-->
+							<!--<cdata><![CDATA[-->
+								<!--<div class="b-local-cabbage">-->
+									<!--<div class="b-local-cabbage-layer-1">-->
+										<!--1-->
+										<!--<div class="b-local-cabbage-layer-2">-->
+											<!--2-->
+											<!--<div class="b-local-cabbage-layer-3">-->
+												<!--3-->
+											<!--</div>-->
+										<!--</div>-->
+									<!--</div>-->
+								<!--</div>-->
+							<!--]]></cdata>-->
+						<!--</html>-->
+					<!--</test>-->
+
+					<!--<test>-->
+						<!--<doc>T11. Вложенные вызовы шаблонов внутри шаблонов, определенных в templates проекта</doc>-->
+						<!--<source>-->
+							<!--<p:cabbage/>-->
+						<!--</source>-->
+						<!--<html>-->
+							<!--<cdata><![CDATA[-->
+								<!--<div class="b-cabbage">-->
+									<!--<div class="b-cabbage-layer-1">-->
+										<!--1-->
+										<!--<div class="b-cabbage-layer-2">-->
+											<!--2-->
+											<!--<div class="b-cabbage-layer-3">-->
+												<!--3-->
+											<!--</div>-->
+										<!--</div>-->
+									<!--</div>-->
+								<!--</div>-->
+							<!--]]></cdata>-->
+						<!--</html>-->
+					<!--</test>-->
+
+					<!--<test>-->
+						<!--<doc>T10. Вызов шаблона переопределенного локально с указанием типа (шаблона без типа не существует)</doc>-->
+						<!--<source>-->
+							<!--<p:bla_local-type-b type="left">-->
+								<!--local bla-->
+							<!--</p:bla_local-type-b>-->
+						<!--</source>-->
+						<!--<html>-->
+							<!--<cdata><![CDATA[-->
+								<!--<div class="b-bla b-bla_type_right">-->
+									<!--local bla-->
+								<!--</div>-->
+							<!--]]></cdata>-->
+						<!--</html>-->
+					<!--</test>-->
+
+					<!--<test>-->
+						<!--<doc>T9. Вызов шаблона переопределенного локально с указанием типа (шаблона без типа не существует)</doc>-->
+						<!--<source>-->
+							<!--<p:bla_local-type type="red">-->
+								<!--local bla-->
+							<!--</p:bla_local-type>-->
+						<!--</source>-->
+						<!--<html>-->
+							<!--<cdata><![CDATA[-->
+								<!--<div class="b-bla b-bla_type_green">-->
+									<!--local bla-->
+								<!--</div>-->
+							<!--]]></cdata>-->
+						<!--</html>-->
+					<!--</test>-->
+					<!--<test>-->
+						<!--<doc>T8. Вызов шаблона переопределенного локально</doc>-->
+						<!--<source>-->
+							<!--<p:bla_local>-->
+								<!--local bla-->
+							<!--</p:bla_local>-->
+						<!--</source>-->
+						<!--<html>-->
+							<!--<cdata><![CDATA[-->
+								<!--<div class="b-bla b-bla_type_local">-->
+									<!--local bla-->
+								<!--</div>-->
+							<!--]]></cdata>-->
+						<!--</html>-->
+					<!--</test>-->
+
+					<!--<test>-->
+						<!--<doc>T7. Вложенный вызов шаблона скаффолдинга с указанием типа</doc>-->
+						<!--<source>-->
+							<!--<p:bla>-->
+								<!--<p:bla type="second">-->
+									<!--bla tipa-->
+								<!--</p:bla>-->
+							<!--</p:bla>-->
+						<!--</source>-->
+						<!--<html>-->
+							<!--<cdata><![CDATA[-->
+								<!--<div class="b-bla">-->
+									<!--<div class="b-bla b-bla_type_second">-->
+										<!--bla tipa-->
+									<!--</div>-->
+								<!--</div>-->
+							<!--]]></cdata>-->
+						<!--</html>-->
+					<!--</test>-->
+
+					<!--<test>-->
+						<!--<doc>T6. Вложенный вызов шаблона скаффолдинга с указанием типа</doc>-->
+						<!--<source>-->
+							<!--<p:bla type="simple">-->
+								<!--<p:bla type="second">-->
+									<!--bla tipa-->
+								<!--</p:bla>-->
+							<!--</p:bla>-->
+						<!--</source>-->
+						<!--<html>-->
+							<!--<cdata><![CDATA[-->
+								<!--<div class="b-bla b-bla_type_simple">-->
+									<!--<div class="b-bla b-bla_type_second">-->
+										<!--bla tipa-->
+									<!--</div>-->
+								<!--</div>-->
+							<!--]]></cdata>-->
+						<!--</html>-->
+					<!--</test>-->
+
+					<!--<test>-->
+						<!--<doc>T5. Вызов шаблона скаффолдинга с указанием типа</doc>-->
+						<!--<source>-->
+							<!--<p:bla type="second">-->
+								<!--bla tipa-->
+							<!--</p:bla>-->
+						<!--</source>-->
+						<!--<html>-->
+							<!--<cdata><![CDATA[-->
+								<!--<div class="b-bla b-bla_type_second">-->
+									<!--bla tipa-->
+								<!--</div>-->
+							<!--]]></cdata>-->
+						<!--</html>-->
+					<!--</test>-->
+
+					<!--<test>-->
+						<!--<doc>T4. Вызов шаблона скаффолдинга с указанием типа</doc>-->
+						<!--<source>-->
+							<!--<p:bla type="simple">-->
+								<!--bla tipa-->
+							<!--</p:bla>-->
+						<!--</source>-->
+						<!--<html>-->
+							<!--<cdata><![CDATA[-->
+								<!--<div class="b-bla b-bla_type_simple">-->
+									<!--bla tipa-->
+								<!--</div>-->
+							<!--]]></cdata>-->
+						<!--</html>-->
+					<!--</test>-->
+
+					<!--<test>-->
+						<!--<doc>T3. Два вложенных вызова шаблонов</doc>-->
+						<!--<source>-->
+							<!--<p:bla>-->
+								<!--<p:bla_blank/>-->
+							<!--</p:bla>-->
+						<!--</source>-->
+						<!--<html>-->
+							<!--<cdata><![CDATA[-->
+								<!--<div class="b-bla">-->
+									<!--<div class="b-bla"></div>-->
+								<!--</div>-->
+							<!--]]></cdata>-->
+						<!--</html>-->
+					<!--</test>-->
+
+					<!--<test>-->
+						<!--<doc>T2. Вызов шаблона скаффолдинга без контента</doc>-->
+						<!--<source>-->
+							<!--<p:bla_blank/>-->
+						<!--</source>-->
+						<!--<html>-->
+							<!--<cdata><![CDATA[-->
+								<!--<div class="b-bla"></div>-->
+							<!--]]></cdata>-->
+						<!--</html>-->
+					<!--</test>-->
+					<!--<test>-->
+						<!--<doc>T1. Вызов шаблона скаффолдинга</doc>-->
+						<!--<source>-->
+							<!--<p:bla>bla</p:bla>-->
+						<!--</source>-->
+						<!--<html>-->
+							<!--<cdata><![CDATA[-->
+								<!--<div class="b-bla">bla</div>-->
+							<!--]]></cdata>-->
+						<!--</html>-->
+					<!--</test>-->
+
+					<!-- Шаблоны < -->
+
+
+					<!-- Блоки > -->
+
+					<test>
+						<doc>Простой блок</doc>
+						<source>
+							<b:block>Simple Block</b:block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div class="b-block">Simple Block</div>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>Элемент в блоке</doc>
+						<source>
+							<b:block>
+								<e:element>Simple Element</e:element>
+							</b:block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div class="b-block">
+									<div class="b-block__element">
+										Simple Element
+									</div>
+								</div>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>Дополнительный блок. для блока</doc>
+						<source>
+							<b:block>
+							<a:another-block />
+								Another Block
+							</b:block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div class="b-block b-another-block">Another Block</div>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>Дополнительный блок. для элемента</doc>
+						<source>
+							<b:block>
+								<e:element>
+								<a:another-block />
+									Another Block to Element
+								</e:element>
+							</b:block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div class="b-block">
+									<div class="b-block__element b-another-block">
+										Another Block to Element
+									</div>
+								</div>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>Модификация. Для блока. Атрибутом</doc>
+						<source>
+							<b:block mode="mode-name_mode-value">Simple Modification</b:block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div class="b-block b-block_mode-name_mode-value">Simple Modification</div>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>Модификация. Для блока. Обычная</doc>
+						<source>
+							<b:block>
+								<m:mode-name val="mode-value"/>
+									Simple Modification
+							</b:block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div class="b-block b-block_mode-name_mode-value">Simple Modification</div>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>Модификация. Для блока. Обычная. Две штуки</doc>
+						<source>
+							<b:block>
+								<m:mode1 val="value1"/>
+								<m:mode2 val="value2"/>
+								Simple Modification
+							</b:block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div class="b-block b-block_mode1_value1 b-block_mode2_value2">Simple Modification</div>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>Модификация. Для элемента. атрибутом</doc>
+						<source>
+							<b:block>
+								<e:element mode="mode-name_mode-value">Simple Modification</e:element>
+							</b:block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div class="b-block">
+									<div class="b-block__element b-block__element_mode-name_mode-value">
+										Simple Modification
+									</div>
+								</div>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>Модификация. Для элемента. Обычная</doc>
+						<source>
+							<b:block>
+								<e:element>
+									<m:mode-name val="mode-value"/>
+									Simple Modification
+								</e:element>
+							</b:block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div class="b-block">
+									<div class="b-block__element b-block__element_mode-name_mode-value">
+										Simple Modification
+									</div>
+								</div>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>Модификация. Для элемента. Обычная. Две</doc>
+						<source>
+							<b:block>
+								<e:element>
+									<m:mode1 val="value1"/>
+									<m:mode2 val="value2"/>
+									Simple Modification
+								</e:element>
+							</b:block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div class="b-block">
+									<div class="b-block__element b-block__element_mode1_value1 b-block__element_mode2_value2">
+										Simple Modification
+									</div>
+								</div>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>Модификация. Для элемента. Обычная. С переопределением блока через @block</doc>
+						<source>
+							<b:block>
+								<e:element block="another-block">
+									<m:mode val="value"/>
+									Simple Modification @block
+								</e:element>
+							</b:block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div class="b-block">
+									<div class="b-another-block__element b-another-block__element_mode_value">
+										Simple Modification @block
+									</div>
+								</div>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>Модификация. Для дополнительного блока. К блоку. Атрибутом</doc>
+						<source>
+							<b:block>
+								<a:another-block mode="mode-name_mode-value"/>
+								Simple Modification of Another Block (attr)
+							</b:block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div class="b-block b-another-block b-another-block_mode-name_mode-value">Simple Modification of Another Block (attr)</div>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>Модификация. Для дополнительного блока. К блоку. Обычная</doc>
+						<source>
+							<b:block>
+								<a:another-block>
+									<m:mode-name val="mode-value"/>
+									</a:another-block>
+								Simple Modification of Another Block
+							</b:block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div class="b-block b-another-block b-another-block_mode-name_mode-value">Simple Modification of Another Block</div>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>Модификация. Для дополнительного блока. К блоку. Обычная. Две</doc>
+						<source>
+							<b:block>
+								<a:another-block>
+									<m:mode1 val="value1"/>
+									<m:mode2 val="value2"/>
+									</a:another-block>
+								Simple Modification of Another Block
+							</b:block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div class="b-block b-another-block b-another-block_mode1_value1 b-another-block_mode2_value2">Simple Modification of Another Block</div>
+							]]></cdata>
+						</html>
+					</test>
+
+
+
+					<test>
+						<doc>Модификация. Для дополнительного блока. К элементу. Атрибутом</doc>
+						<source>
+							<b:block>
+								<e:element>
+									<a:another-block mode="mode-name_mode-value"/>
+									Simple Modification of Another Block to Element
+								</e:element>
+							</b:block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div class="b-block">
+									<div class="b-block__element b-another-block b-another-block_mode-name_mode-value">
+										Simple Modification of Another Block to Element
+									</div>
+								</div>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>Модификация. Для дополнительного блока. К элементу. Обычная</doc>
+						<source>
+							<b:block>
+								<e:element>
+									<a:another-block>
+										<m:mode-name val="mode-value"/>
+										</a:another-block>
+									Simple Modification of Another Block to Element
+								</e:element>
+							</b:block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div class="b-block">
+									<div class="b-block__element b-another-block b-another-block_mode-name_mode-value">
+										Simple Modification of Another Block to Element
+									</div>
+								</div>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>Модификация. Для дополнительного блока. К элементу. Обычная. Две</doc>
+						<source>
+							<b:block>
+								<e:element>
+									<a:another-block>
+										<m:mode1 val="value1"/>
+										<m:mode2 val="value2"/>
+										</a:another-block>
+									Simple Modification of Another Block to Element
+								</e:element>
+							</b:block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div class="b-block">
+									<div class="b-block__element b-another-block b-another-block_mode1_value1 b-another-block_mode2_value2">
+										Simple Modification of Another Block to Element
+									</div>
+								</div>
+							]]></cdata>
+						</html>
+					</test>
+<!--
+					<test> &lt;!&ndash; Passed &ndash;&gt;
+						<doc>T#67091</doc>
+						<source>
+							<b:field-composition><a:btn-add-field block="true"/>
+								<e:title block="field-composition">
+									<b:form-field-label x:for="fPhone">Телефон</b:form-field-label>
+								</e:title>
+								<e:content block="field-composition">
+									<b:form-field><m:type val="text"/></b:form-field>
+								</e:content>
+								<e:bug> </e:bug>
+								<e:bug></e:bug>
+								<e:bug/>
+								<e:bug-container>
+									<e:bug><b:bbb>Test<e:aaa>Test</e:aaa></b:bbb></e:bug>
+									<e:bug><b:bbb>Test</b:bbb></e:bug>
+									<e:bug> </e:bug>
+									<e:bug></e:bug>
+									<e:bug/>
+								</e:bug-container>
+							</b:field-composition>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<dl class="b-field-composition b-btn-add-field">
+
+									<dt class="b-field-composition__title">
+										<label class="b-form-field-label" for="fPhone">Телефон</label>
+									</dt>
+									<dd class="b-field-composition__content">
+										<input class="b-form-field b-form-field_type_text" name="fField" id="fField" type="text" />
+									</dd>
+									<div class="b-btn-add-field__bug"> </div>
+									<div class="b-btn-add-field__bug"></div>
+									<div class="b-btn-add-field__bug"></div>
+									<div class="b-btn-add-field__bug-container">
+										<div class="b-btn-add-field__bug">
+											<div class="b-bbb">
+												Test
+												<div class="b-bbb__aaa">
+													Test
+												</div>
+											</div>
+										</div>
+										<div class="b-btn-add-field__bug">
+											<div class="b-bbb">
+												Test
+											</div>
+										</div>
+										<div class="b-btn-add-field__bug"> </div>
+										<div class="b-btn-add-field__bug"></div>
+										<div class="b-btn-add-field__bug"></div>
+									</div>
+								</dl>
+							]]></cdata>
+						</html>
+					</test>
+-->
+					<!--<test>-->
+						<!--<doc>#59869 @noblock vs. ancestor @block</doc>-->
+						<!--<source>-->
+<!--&lt;!&ndash;-->
+								<!--<b:table-row>-->
+								    <!--<a:order block="true">-->
+								        <!--<m:viewtype val="summary"/>-->
+								        <!--</a:order>-->
+								    <!--<b:cell noblock="true">-->
+											<!--<e:in>-->
+
+											<!--</e:in>-->
+									<!--</b:cell>-->
+							<!--</b:table-row>-->
+<!--&ndash;&gt;-->
+
+							<!--<b:test-block>-->
+								<!--<a:test-block-2 block="true">-->
+									<!--<m:test-mode val="test-mode-value"/>-->
+								<!--</a:test-block-2>-->
+								<!--<b:test-block-3 noblock="true">-->
+									<!--<e:test-element/>-->
+									<!--<e:test-element>-->
+										<!--La-la-->
+									<!--</e:test-element>-->
+								<!--</b:test-block-3>-->
+							<!--</b:test-block>-->
+
+						<!--</source>-->
+						<!--<html>-->
+							<!--<cdata><![CDATA[-->
+								<!--<div class="b-test-block b-test-block-2 b-test-block-2_test-mode_test-mode-value">-->
+									<!--<div class="b-test-block-3">-->
+										<!--<div class="b-test-block-2__test-element"></div>-->
+										<!--<div class="b-test-block-2__test-element">-->
+											<!--La-la-->
+										<!--</div>-->
+									<!--</div>-->
+								<!--</div>-->
+							<!--]]></cdata>-->
+						<!--</html>-->
+					<!--</test>-->
+					<!--<test>-->
+						<!--<doc>Custom xmlns. Inline. #64611</doc>-->
+						<!--<source>-->
+							<!--<b:test-block xmlns:v="http://rdf.data-vocabulary.org/#">-->
+								<!--Inline xmlns-->
+							<!--</b:test-block>-->
+						<!--</source>-->
+						<!--<html>-->
+							<!--<cdata><![CDATA[-->
+								<!--<div xmlns:v="http://rdf.data-vocabulary.org/#" class="b-test-block">-->
+								<!--Inline xmlns-->
+								<!--</div>-->
+							<!--]]></cdata>-->
+						<!--</html>-->
+					<!--</test>-->
+					<!--<test>-->
+						<!--<doc>Custom xmlns. GDS. #64611</doc>-->
+						<!--<source>-->
+							<!--<b:test-block-with-xmlns>-->
+								<!--GDS xmlns-->
+							<!--</b:test-block-with-xmlns>-->
+						<!--</source>-->
+						<!--<html>-->
+							<!--<cdata><![CDATA[-->
+								<!--<div xmlns:v="http://rdf.data-vocabulary.org/#" class="b-test-block-with-xmlns">-->
+								<!--GDS xmlns-->
+								<!--</div>-->
+							<!--]]></cdata>-->
+						<!--</html>-->
+					<!--</test>-->
+					<test>
+						<doc>#55625</doc>
+						<source>
+							<b:test-block>
+								<a:test-block-2/>
+								<a:test-block-3/>
+								<a:test-block-4/>
+								<a:test-block-5>
+									<m:test-mode val="test-mode-value"/>
+								</a:test-block-5>
+							</b:test-block>
+							<b:test-block>
+								<a:test-block-2/>
+								<a:test-block-3/>
+								<a:test-block-4/>
+								<a:test-block-5>
+									<m:test-mode val="test-mode-value"/>
+								</a:test-block-5>
+								bla
+							</b:test-block>
+							<b:test-block>Bla</b:test-block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div class="b-test-block b-test-block-2 b-test-block-3 b-test-block-4 b-test-block-5 b-test-block-5_test-mode_test-mode-value"></div>
+								<div class="b-test-block b-test-block-2 b-test-block-3 b-test-block-4 b-test-block-5 b-test-block-5_test-mode_test-mode-value">
+								bla
+								</div>
+								<div class="b-test-block">Bla</div>
+							]]></cdata>
+						</html>
+					</test>
+					<test> <!--Tests Passed but marked as failed because addition d: namespaces.-->
+						<doc>Custom xmlns. Inline dynamic. #64611</doc>
+						<source>
+							<d:test-inline-xmlns/>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div xmlns:v="http://rdf.data-vocabulary.org/#" class="b-test-block">
+									Inline dynamic xmlns
+								</div>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>Custom xmlns. GDS dynamic. #64611</doc>
+						<source>
+							<d:test-gds-xmlns/>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div xmlns:v="http://rdf.data-vocabulary.org/#" class="b-test-block-with-xmlns" >
+									GDS dynamic xmlns
+								</div>
+							]]></cdata>
+						</html>
+					</test>
+					<!--<test>
+						<doc>@noblock</doc>
+						<source>
+							<b:block>
+								<b:none noblock="true">
+									<e:element>
+									Simple Block
+									</e:element>
+								</b:none>
+							</b:block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div class="b-block">
+									<div class="b-none">
+										<div class="b-block__element">
+											Simple Block
+										</div>
+									</div>
+								</div>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>@noblock. несколько вложенных</doc>
+						<source>
+							<b:block>
+								<b:none noblock="true">
+									<e:element>
+										<b:none2 noblock="true">
+											<e:element2>
+												Simple Block
+											</e:element2>
+										</b:none2>
+									</e:element>
+								</b:none>
+							</b:block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div class="b-block">
+									<div class="b-none">
+										<div class="b-block__element">
+											<div class="b-none2">
+												<div class="b-block__element2">
+													Simple Block
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>Перехват блока</doc>
+						<source>
+							<b:block>
+								<b:another-block>
+									<a:yet-another-block block="true"/>
+										<e:element>
+											1
+											<e:element>3</e:element>
+										</e:element>
+								</b:another-block>
+								<e:element>2</e:element>
+							</b:block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div class="b-block">
+									<div class="b-another-block b-yet-another-block">
+										<div class="b-yet-another-block__element">
+											1
+											<div class="b-yet-another-block__element">
+												3
+											</div>
+										</div>
+									</div>
+									<div class="b-block__element">2</div>
+								</div>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>Перехват блока. несколько вложенных</doc>
+						<source>
+							<b:block>
+								<b:another-block>
+									<a:yet-another-block block="true"/>
+										<e:element>
+											1
+											<e:element><a:aaargh-yet-another-block block="true"/>3
+												<e:element>4</e:element>
+											</e:element>
+										</e:element>
+
+								</b:another-block>
+								<e:element>2</e:element>
+							</b:block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div class="b-block">
+									<div class="b-another-block b-yet-another-block">
+										<div class="b-yet-another-block__element">
+											1
+											<div class="b-yet-another-block__element b-aaargh-yet-another-block">
+												3
+												<div class="b-aaargh-yet-another-block__element">
+													4
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="b-block__element">2</div>
+								</div>
+							]]></cdata>
+						</html>
+					</test>-->
+					<!--<test>-->
+						<!--<doc>Перехват блока. несколько вложенных. @block</doc>-->
+						<!--<source>-->
+							<!--<b:block>-->
+								<!--<b:another-block>-->
+									<!--<a:yet-another-block block="true"/>-->
+										<!--<e:element>-->
+											<!--1-->
+											<!--<e:element><a:aaargh-yet-another-block block="true"/>3-->
+												<!--<e:element block="some-block">4-->
+													<!--<e:element>5</e:element>-->
+												<!--</e:element>-->
+											<!--</e:element>-->
+										<!--</e:element>-->
+
+								<!--</b:another-block>-->
+								<!--<e:element>2</e:element>-->
+							<!--</b:block>-->
+						<!--</source>-->
+						<!--<html>-->
+							<!--<cdata><![CDATA[-->
+								<!--<div class="b-block">-->
+									<!--<div class="b-another-block b-yet-another-block">-->
+										<!--<div class="b-yet-another-block__element">-->
+											<!--1-->
+											<!--<div class="b-yet-another-block__element b-aaargh-yet-another-block">-->
+												<!--3-->
+												<!--<div class="b-some-block__element">-->
+													<!--4-->
+													<!--<div class="b-aaargh-yet-another-block__element">-->
+														<!--5-->
+													<!--</div>-->
+												<!--</div>-->
+											<!--</div>-->
+										<!--</div>-->
+									<!--</div>-->
+									<!--<div class="b-block__element">2</div>-->
+								<!--</div>-->
+							<!--]]></cdata>-->
+						<!--</html>-->
+					<!--</test>-->
+					<!--<test>-->
+						<!--<doc>Перехват блока. несколько вложенных. @block</doc>-->
+						<!--<source>-->
+							<!--<b:block>-->
+								<!--<b:another-block>-->
+									<!--<a:yet-another-block block="true"/>-->
+										<!--<e:element>-->
+											<!--1-->
+											<!--<e:element>-->
+												<!--<b:aaargh-yet-another-block>-->
+													<!--<e:element block="some-block">4-->
+														<!--<e:element>5</e:element>-->
+													<!--</e:element>-->
+												<!--</b:aaargh-yet-another-block>-->
+											<!--</e:element>-->
+										<!--</e:element>-->
+
+								<!--</b:another-block>-->
+								<!--<e:element>2</e:element>-->
+							<!--</b:block>-->
+						<!--</source>-->
+						<!--<html>-->
+							<!--<cdata><![CDATA[-->
+								<!--<div class="b-block">-->
+									<!--<div class="b-another-block b-yet-another-block">-->
+										<!--<div class="b-yet-another-block__element">-->
+											<!--1-->
+											<!--<div class="b-yet-another-block__element">-->
+												<!--<div class="b-aaargh-yet-another-block">-->
+
+												<!--<div class="b-some-block__element">-->
+													<!--4-->
+													<!--<div class="b-aaargh-yet-another-block__element">-->
+														<!--5-->
+													<!--</div>-->
+												<!--</div>-->
+												<!--</div>-->
+											<!--</div>-->
+										<!--</div>-->
+									<!--</div>-->
+									<!--<div class="b-block__element">2</div>-->
+								<!--</div>-->
+							<!--]]></cdata>-->
+						<!--</html>-->
+					<!--</test>-->
+					<!-- Блоки < -->
+
+					<!-- Теги > -->
+					<test>
+						<doc>D1. Теги. присвоение атрибутом. для блока</doc>
+						<source>
+							<b:block tag="h1">
+								Simple Tag (additional)
+							</b:block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<h1 class="b-block">Simple Tag (additional)</h1>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D2. Теги. присвоение атрибутом. для элемента</doc>
+						<source>
+							<b:block>
+								<e:elem-inline-s tag="h1">
+									Simple Tag (element)
+								</e:elem-inline-s>
+							</b:block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div class="b-block">
+									<h1 class="b-block__elem-inline-s">Simple Tag (element)</h1>
+								</div>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D3.1 Теги. присвоение атрибутом. через дополнительный блок. для блока</doc>
+						<source>
+							<b:block>
+								<a:another-block tag="h2"/>
+								Simple Tag (additional)
+							</b:block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<h2 class="b-block b-another-block">Simple Tag (additional)</h2>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D3.2 Теги. присвоение атрибутом. через дополнительный блок. несколько. атрибут задан всем. для блока</doc>
+						<source>
+							<b:block>
+								<a:another-block tag="h1"/>
+								<a:another-block2 tag="h2"/>
+								<a:another-block3 tag="h3"/>
+								Simple Tag (additional)
+							</b:block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<h3 class="b-block b-another-block b-another-block2 b-another-block3">Simple Tag (additional)</h3>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D3.3 Теги. присвоение атрибутом. через дополнительный блок. несколько, атрибут задан всем кроме последнего. для блока</doc>
+						<source>
+							<b:block>
+								<a:another-block tag="h1"/>
+								<a:another-block2 tag="h2"/>
+								<a:another-block3 tag="h3"/>
+								<a:another-block4 />
+								Simple Tag (additional)
+							</b:block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<h3 class="b-block b-another-block b-another-block2 b-another-block3 b-another-block4">Simple Tag (additional)</h3>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D3.4 Теги. присвоение атрибутом. через дополнительный блок. несколько, атрибут задан через одного. для блока</doc>
+						<source>
+							<b:block>
+								<a:another-block tag="h1"/>
+								<a:another-block2 />
+								<a:another-block3 tag="h3"/>
+								<a:another-block4 />
+								Simple Tag (additional)
+							</b:block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<h3 class="b-block b-another-block b-another-block2 b-another-block3 b-another-block4">Simple Tag (additional)</h3>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D3.5 Теги. присвоение атрибутом. через дополнительный блок. несколько, атрибут задан одному в середине. для блока</doc>
+						<source>
+							<b:block>
+								<a:another-block/>
+								<a:another-block2 />
+								<a:another-block3 tag="h3"/>
+								<a:another-block4 />
+								Simple Tag (additional)
+							</b:block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<h3 class="b-block b-another-block b-another-block2 b-another-block3 b-another-block4">Simple Tag (additional)</h3>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D4.1 Теги. присвоение атрибутом. через модификациию. для блока</doc>
+						<source>
+							<b:test-simple>
+								<m:type val="simple" tag="abbr"/>
+								Simple Mode tag
+							</b:test-simple>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<abbr class="b-test-simple b-test-simple_type_simple">
+									Simple Mode tag
+								</abbr>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D4.2 Теги. присвоение атрибутом. через модификациию. несколько. для блока</doc>
+						<source>
+							<b:test-simple>
+								<m:type val="simple" tag="abbr"/>
+								<m:type val="simple-2" tag="acronym"/>
+								Simple Mode tag
+							</b:test-simple>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<acronym class="b-test-simple b-test-simple_type_simple b-test-simple_type_simple-2">
+									Simple Mode tag
+								</acronym>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D5.1 Теги. присвоение атрибутом. через модификациию. для элемента</doc>
+						<source>
+							<b:block>
+								<e:test-simple>
+									<m:type val="simple" tag="abbr"/>
+									Simple Mode tag
+								</e:test-simple>
+							</b:block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div class="b-block">
+									<abbr class="b-block__test-simple b-block__test-simple_type_simple">
+										Simple Mode tag
+									</abbr>
+								</div>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D5.2 Теги. присвоение атрибутом. через модификациию. несколько. для элемента</doc>
+						<source>
+							<b:block>
+								<e:test-simple>
+									<m:type val="simple" tag="abbr"/>
+									<m:type val="simple-2" tag="acronym"/>
+									Simple Mode tag
+								</e:test-simple>
+							</b:block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div class="b-block">
+									<acronym class="b-block__test-simple b-block__test-simple_type_simple b-block__test-simple_type_simple-2">
+										Simple Mode tag
+									</acronym>
+								</div>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D6.1 Теги. присвоение атрибутом. через модификациию для дополнительного блока. для блока</doc>
+						<source>
+							<b:block>
+								<a:another-block>
+									<m:type val="simple" tag="h2"/>
+								</a:another-block>
+								Simple Tag (additional)
+							</b:block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<h2 class="b-block b-another-block b-another-block_type_simple">Simple Tag (additional)</h2>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D6.2 Теги. присвоение атрибутом. через модификациию для дополнительного блока. несколько. для блока</doc>
+						<source>
+							<b:block>
+								<a:another-block>
+									<m:type val="simple" tag="h1"/>
+									<m:type val="simple-2" tag="h2"/>
+								</a:another-block>
+								Simple Tag (additional)
+							</b:block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<h2 class="b-block b-another-block b-another-block_type_simple b-another-block_type_simple-2">Simple Tag (additional)</h2>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D7.1 Теги. присвоение атрибутом. через модификациию для дополнительного блока. для элемента</doc>
+						<source>
+							<b:block>
+								<e:element-i-s>
+									<a:another-block>
+										<m:type val="simple" tag="h2"/>
+									</a:another-block>
+									Simple Tag (additional)
+								</e:element-i-s>
+							</b:block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div class="b-block">
+									<h2 class="b-block__element-i-s b-another-block b-another-block_type_simple">Simple Tag (additional)</h2>
+								</div>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D7.2 Теги. присвоение атрибутом. через модификациию для дополнительного блока. несколько. для элемента</doc>
+						<source>
+							<b:block>
+								<e:element-i-s>
+									<a:another-block>
+										<m:type val="simple" tag="h1"/>
+										<m:type val="simple-2" tag="h2"/>
+									</a:another-block>
+									Simple Tag (additional)
+								</e:element-i-s>
+							</b:block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div class="b-block">
+									<h2 class="b-block__element-i-s b-another-block b-another-block_type_simple b-another-block_type_simple-2">Simple Tag (additional)</h2>
+								</div>
+							]]></cdata>
+						</html>
+					</test>
+
+					<test>
+						<doc>D10. Теги. GDS. для блока</doc>
+						<source>
+							<b:test-simple-g>Simple tag</b:test-simple-g>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<span class="b-test-simple-g">Simple tag</span>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D11.1. Теги. GDS. для элемента</doc>
+						<source>
+							<b:test-simple>
+								<e:elem>Simple tag</e:elem>
+							</b:test-simple>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div class="b-test-simple">
+									<strong class="b-test-simple__elem">Simple tag</strong>
+								</div>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D11.2. Теги. GDS. для элемента (блок переопределен через атрибут @block)</doc>
+						<source>
+							<b:test-simple>
+								<e:elem block="test-simple-g">Simple tag</e:elem>
+							</b:test-simple>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div class="b-test-simple">
+									<strong class="b-test-simple-g__elem">Simple tag</strong>
+								</div>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D11.3 Теги. GDS. для элемента (блок переопределен через атрибут @block дополнительного блока выше по дереву)</doc>
+						<source>
+							<b:test-simple>
+								<a:test-simple-g block="true"/>
+								<e:elem>Simple tag</e:elem>
+							</b:test-simple>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<span class="b-test-simple b-test-simple-g">
+									<strong class="b-test-simple-g__elem">Simple tag</strong>
+								</span>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D12. Теги. GDS. для блока и для элемента блока</doc>
+						<source>
+							<b:test-simple-g>
+								<e:elem>Simple tag</e:elem>
+							</b:test-simple-g>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<span class="b-test-simple-g">
+									<strong class="b-test-simple-g__elem">Simple tag</strong>
+								</span>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D13.1 Теги. GDS. через модификациию. для блока</doc>
+						<source>
+							<b:test-simple>
+								<m:type val="pseudo"/>
+								Simple Mode tag
+							</b:test-simple>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<abbr class="b-test-simple b-test-simple_type_pseudo">
+									Simple Mode tag
+								</abbr>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D13.2 Теги. GDS через модификацию. несколько. для блока</doc>
+						<source>
+							<b:test-simple>
+								<m:type val="simple-1"/>
+								<m:type val="simple-2"/>
+								Simple Mode Double tag
+							</b:test-simple>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<h2 class="b-test-simple b-test-simple_type_simple-1 b-test-simple_type_simple-2">
+									Simple Mode Double tag
+								</h2>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D14.1 Теги. GDS. через модификациию. для элемента</doc>
+						<source>
+							<b:test-block>
+								<e:test-element>
+									<m:test-mode val="test-mode-value-with-gds"/>
+									Test Element GDS
+								</e:test-element>
+							</b:test-block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div class="b-test-block">
+									<p class="b-test-block__test-element b-test-block__test-element_test-mode_test-mode-value-with-gds">
+										Test Element GDS
+									</p>
+								</div>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D14.2 Теги. GDS через модификацию. несколько значений этой модификации. для элемента</doc>
+						<source>
+							<b:test-block>
+								<e:test-element>
+									<m:test-mode val="test-mode-value-1-with-gds"/>
+									<m:test-mode val="test-mode-value-2-with-gds"/>
+									Test Element GDS
+								</e:test-element>
+							</b:test-block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div class="b-test-block">
+									<h2 class="b-test-block__test-element b-test-block__test-element_test-mode_test-mode-value-1-with-gds b-test-block__test-element_test-mode_test-mode-value-2-with-gds">
+										Test Element GDS
+									</h2>
+								</div>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D14.3 Теги. GDS через модификацию. несколько. для элемента</doc>
+						<source>
+							<b:test-block>
+								<e:test-element>
+									<m:test-mode-1 val="test-mode-value-with-gds"/>
+									<m:test-mode-2 val="test-mode-value-with-gds"/>
+									Test Element GDS
+								</e:test-element>
+							</b:test-block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div class="b-test-block">
+									<h2 class="b-test-block__test-element b-test-block__test-element_test-mode-1_test-mode-value-with-gds b-test-block__test-element_test-mode-2_test-mode-value-with-gds">
+										Test Element GDS
+									</h2>
+								</div>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D15.1 Теги. GDS. через модификациию на дополнительном блоке. (доп. блок к блоку)</doc>
+						<source>
+							<b:test-block>
+								<a:test-block-2>
+									<m:test-mode val="test-mode-value-with-gds"/>
+								</a:test-block-2>
+								Test Element GDS
+							</b:test-block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<p class="b-test-block b-test-block-2 b-test-block-2_test-mode_test-mode-value-with-gds">
+									Test Element GDS
+								</p>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D15.2 Теги. GDS. через модификациию на дополнительном блоке. несколько значений этой модификации. (доп. блок к блоку)</doc>
+						<source>
+							<b:test-block>
+								<a:test-block-2>
+									<m:test-mode val="test-mode-value-1-with-gds"/>
+									<m:test-mode val="test-mode-value-2-with-gds"/>
+								</a:test-block-2>
+									Test Element GDS
+							</b:test-block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<h2 class="b-test-block b-test-block-2 b-test-block-2_test-mode_test-mode-value-1-with-gds b-test-block-2_test-mode_test-mode-value-2-with-gds">
+									Test Element GDS
+								</h2>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D15.3 Теги. GDS. через модификациию на дополнительном блоке. несколько значений этой модификации. (доп. блок к блоку)</doc>
+						<source>
+							<b:test-block>
+								<a:test-block-2>
+									<m:test-mode-1 val="test-mode-value-with-gds"/>
+									<m:test-mode-2 val="test-mode-value-with-gds"/>
+								</a:test-block-2>
+								Test Element GDS
+							</b:test-block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<h2 class="b-test-block b-test-block-2 b-test-block-2_test-mode-1_test-mode-value-with-gds b-test-block-2_test-mode-2_test-mode-value-with-gds">
+									Test Element GDS
+								</h2>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D16.1 Теги. GDS. через модификациию на дополнительном блоке. (доп. блок к элементу)</doc>
+						<source>
+							<b:test-block>
+								<e:test-element>
+									<a:test-block-2>
+										<m:test-mode val="test-mode-value-with-gds"/>
+									</a:test-block-2>
+									Test Element GDS
+								</e:test-element>
+							</b:test-block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div class="b-test-block">
+									<p class="b-test-block__test-element b-test-block-2 b-test-block-2_test-mode_test-mode-value-with-gds">
+										Test Element GDS
+									</p>
+								</div>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D16.2 Теги. GDS. через модификациию на дополнительном блоке. несколько значений этой модификации. (доп. блок к элементу)</doc>
+						<source>
+							<b:test-block>
+								<e:test-element>
+									<a:test-block-2>
+										<m:test-mode val="test-mode-value-1-with-gds"/>
+										<m:test-mode val="test-mode-value-2-with-gds"/>
+									</a:test-block-2>
+									Test Element GDS
+								</e:test-element>
+							</b:test-block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div class="b-test-block">
+									<h2 class="b-test-block__test-element b-test-block-2 b-test-block-2_test-mode_test-mode-value-1-with-gds b-test-block-2_test-mode_test-mode-value-2-with-gds">
+										Test Element GDS
+									</h2>
+								</div>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D16.3 Теги. GDS. через модификациию на дополнительном блоке. несколько значений этой модификации. (доп. блок к элементу)</doc>
+						<source>
+							<b:test-block>
+								<e:test-element>
+									<a:test-block-2>
+										<m:test-mode-1 val="test-mode-value-with-gds"/>
+										<m:test-mode-2 val="test-mode-value-with-gds"/>
+									</a:test-block-2>
+									Test Element GDS
+								</e:test-element>
+							</b:test-block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div class="b-test-block">
+									<h2 class="b-test-block__test-element b-test-block-2 b-test-block-2_test-mode-1_test-mode-value-with-gds b-test-block-2_test-mode-2_test-mode-value-with-gds">
+										Test Element GDS
+									</h2>
+								</div>
+							]]></cdata>
+						</html>
+					</test>
+
+					<test>
+						<doc>D17.1 Теги. GDS. через дополнительный блок. к блоку</doc>
+						<source>
+							<b:test-block>
+								<a:test-block-2-with-gds/>
+							</b:test-block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<h2 class="b-test-block b-test-block-2-with-gds"></h2>
+							]]></cdata>
+						</html>
+					</test>
+
+					<test>
+						<doc>D17.2 Теги. GDS. через дополнительный блок. к элементу</doc>
+						<source>
+							<b:test-block>
+								<e:test-element>
+									<a:test-block-2-with-gds/>
+								</e:test-element>
+							</b:test-block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div class="b-test-block">
+									<h2 class="b-test-block__test-element b-test-block-2-with-gds"></h2>
+								</div>
+							]]></cdata>
+						</html>
+					</test>
+
+					<!--comment for running check-script -->
+					<!--<test>-->
+						<!--<doc>D17.4 Теги. GDS. для элемента. + дополнительный блок с атрибутом @block="true"</doc>-->
+						<!--<source>-->
+							<!--<b:test-block>-->
+								<!--<e:test-element-with-gds>-->
+									<!--<a:test-block-2 block="true"/>-->
+								<!--</e:test-element-with-gds>-->
+							<!--</b:test-block>-->
+						<!--</source>-->
+						<!--<html>-->
+							<!--<cdata><![CDATA[-->Хлебные крошки
+								<!--<div class="b-test-block">-->
+									<!--<p class="b-test-block__test-element-with-gds b-test-block-2"></p>-->
+								<!--</div>-->
+							<!--]]></cdata>-->
+						<!--</html>-->
+					<!--</test>-->
+
+
+
+
+
+					<test>
+						<doc>D20. Теги. Inline vs. GDS. для блока</doc>
+						<source>
+							<b:test-block-with-gds tag="blockquote"></b:test-block-with-gds>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<blockquote class="b-test-block-with-gds"></blockquote>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D21. Теги. Inline vs. GDS. Для элемента блока</doc>
+						<source>
+							<b:test-block>
+								<e:test-element-with-gds tag="blockquote">
+
+								</e:test-element-with-gds>
+							</b:test-block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div class="b-test-block">
+									<blockquote class="b-test-block__test-element-with-gds"></blockquote>
+								</div>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D22.1 Теги. Inline vs. GDS. Для дополнительного блока (к блоку)</doc>
+						<source>
+							<b:test-block>
+								<a:test-block-with-gds tag="blockquote"/>
+							</b:test-block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<blockquote class="b-test-block b-test-block-with-gds"></blockquote>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D22.2 Теги. Inline vs. GDS. Для дополнительного блока (к блоку). несколько</doc>
+						<source>
+							<b:test-block>
+								<a:test-block-1-with-gds tag="blockquote"/>
+								<a:test-block-2-with-gds tag="pre"/>
+							</b:test-block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<pre class="b-test-block b-test-block-1-with-gds b-test-block-2-with-gds"></pre>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D23.1 Теги. Inline vs. GDS. Для дополнительного блока (к элементу)</doc>
+						<source>
+							<b:test-block>
+								<e:test-element>
+									<a:test-block-with-gds tag="blockquote"/>
+								</e:test-element>
+							</b:test-block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div class="b-test-block">
+									<blockquote class="b-test-block__test-element b-test-block-with-gds"></blockquote>
+								</div>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D23.2 Теги. Inline vs. GDS. Для дополнительного блока (к элементу). несколько</doc>
+						<source>
+							<b:test-block>
+								<e:test-element>
+									<a:test-block-1-with-gds tag="blockquote"/>
+									<a:test-block-2-with-gds tag="pre"/>
+								</e:test-element>
+							</b:test-block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div class="b-test-block">
+									<pre class="b-test-block__test-element b-test-block-1-with-gds b-test-block-2-with-gds"></pre>
+								</div>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D24.1 Теги. Inline vs. GDS. Для дополнительного блока (к блоку). Несколько дополнительных, инлайн не на последнем</doc>
+						<source>
+							<b:test-block>
+								<a:test-block-1-with-gds tag="blockquote"/>
+								<a:test-block-2-with-gds/>
+							</b:test-block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<blockquote class="b-test-block b-test-block-1-with-gds b-test-block-2-with-gds"></blockquote>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D24.2 Теги. Inline vs. GDS. Для дополнительного блока (к блоку). Несколько дополнительных, инлайн на последнем</doc>
+						<source>
+							<b:test-block>
+								<a:test-block-1-with-gds/>
+								<a:test-block-2-with-gds tag="blockquote"/>
+							</b:test-block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<blockquote class="b-test-block b-test-block-1-with-gds b-test-block-2-with-gds"></blockquote>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D25.1 Теги. Inline vs. GDS. Для дополнительного блока (к элементу). Несколько дополнительных, инлайн не на последнем</doc>
+						<source>
+							<b:test-block>
+								<e:test-element>
+									<a:test-block-1-with-gds tag="blockquote"/>
+									<a:test-block-2-with-gds/>
+								</e:test-element>
+							</b:test-block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div class="b-test-block">
+									<blockquote class="b-test-block__test-element b-test-block-1-with-gds b-test-block-2-with-gds"></blockquote>
+								</div>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D25.2 Теги. Inline vs. GDS. Для дополнительного блока (к элементу). Несколько дополнительных, инлайн на последнем</doc>
+						<source>
+							<b:test-block>
+								<e:test-element>
+									<a:test-block-1-with-gds/>
+									<a:test-block-2-with-gds tag="blockquote"/>
+								</e:test-element>
+							</b:test-block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div class="b-test-block">
+									<blockquote class="b-test-block__test-element b-test-block-1-with-gds b-test-block-2-with-gds"></blockquote>
+								</div>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D26.1 Теги. Inline vs. GDS. для модификации. к блоку. </doc>
+						<source>
+							<b:test-block>
+								<m:test-mode-with-gds val="test-mode-value" tag="blockquote"/>
+							</b:test-block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<blockquote class="b-test-block b-test-block_test-mode-with-gds_test-mode-value"></blockquote>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D26.2 Теги. Inline vs. GDS. для модификации. несколько значений одной модификации. к блоку. </doc>
+						<source>
+							<b:test-block>
+								<m:test-mode-with-gds val="test-mode-value-1" tag="blockquote"/>
+								<m:test-mode-with-gds val="test-mode-value-2" tag="pre"/>
+							</b:test-block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<pre class="b-test-block b-test-block_test-mode-with-gds_test-mode-value-1 b-test-block_test-mode-with-gds_test-mode-value-2"></pre>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D26.3 Теги. Inline vs. GDS. для модификации. несколько значений одной модификации. переопределена не последняя. к блоку. </doc>
+						<source>
+							<b:test-block>
+								<m:test-mode-with-gds val="test-mode-value-1" tag="blockquote"/>
+								<m:test-mode-with-gds val="test-mode-value-2"/>
+							</b:test-block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<blockquote class="b-test-block b-test-block_test-mode-with-gds_test-mode-value-1 b-test-block_test-mode-with-gds_test-mode-value-2"></blockquote>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D26.4 Теги. Inline vs. GDS. для модификации. несколько значений одной модификации. переопределена не последняя. к блоку. </doc>
+						<source>
+							<b:test-block>
+								<m:test-mode-with-gds val="test-mode-value-1"/>
+								<m:test-mode-with-gds val="test-mode-value-2" tag="pre"/>
+							</b:test-block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<pre class="b-test-block b-test-block_test-mode-with-gds_test-mode-value-1 b-test-block_test-mode-with-gds_test-mode-value-2"></pre>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D26.5 Теги. Inline vs. GDS. для модификации. несколько. переопределена не последняя. к блоку. </doc>
+						<source>
+							<b:test-block>
+								<m:test-mode-1-with-gds val="test-mode-value" tag="blockquote"/>
+								<m:test-mode-2-with-gds val="test-mode-value"/>
+							</b:test-block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<blockquote class="b-test-block b-test-block_test-mode-1-with-gds_test-mode-value b-test-block_test-mode-2-with-gds_test-mode-value"></blockquote>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D26.6 Теги. Inline vs. GDS. для модификации. несколько. переопределена только последняя. к блоку. </doc>
+						<source>
+							<b:test-block>
+								<m:test-mode-1-with-gds val="test-mode-value"/>
+								<m:test-mode-2-with-gds val="test-mode-value" tag="pre"/>
+							</b:test-block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<pre class="b-test-block b-test-block_test-mode-1-with-gds_test-mode-value b-test-block_test-mode-2-with-gds_test-mode-value"></pre>
+							]]></cdata>
+						</html>
+					</test>
+
+					<test>
+						<doc>D27.1 Теги. Inline vs. GDS. для модификации. к элементу. </doc>
+						<source>
+							<b:test-block>
+								<e:test-element>
+									<m:test-mode-with-gds val="test-mode-value" tag="blockquote"/>
+								</e:test-element>
+							</b:test-block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div class="b-test-block">
+									<blockquote class="b-test-block__test-element b-test-block__test-element_test-mode-with-gds_test-mode-value"></blockquote>
+								</div>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D27.2 Теги. Inline vs. GDS. для модификации. несколько значений одной модификации. к элементу. </doc>
+						<source>
+							<b:test-block>
+								<e:test-element>
+									<m:test-mode-with-gds val="test-mode-value-1" tag="blockquote"/>
+									<m:test-mode-with-gds val="test-mode-value-2" tag="pre"/>
+								</e:test-element>
+							</b:test-block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div class="b-test-block">
+									<pre class="b-test-block__test-element b-test-block__test-element_test-mode-with-gds_test-mode-value-1 b-test-block__test-element_test-mode-with-gds_test-mode-value-2"></pre>
+								</div>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D27.3 Теги. Inline vs. GDS. для модификации. несколько значений одной модификации. переопределена не последняя. к элементу. </doc>
+						<source>
+							<b:test-block>
+								<e:test-element>
+									<m:test-mode-with-gds val="test-mode-value-1" tag="blockquote"/>
+									<m:test-mode-with-gds val="test-mode-value-2"/>
+								</e:test-element>
+							</b:test-block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div class="b-test-block">
+									<blockquote class="b-test-block__test-element b-test-block__test-element_test-mode-with-gds_test-mode-value-1 b-test-block__test-element_test-mode-with-gds_test-mode-value-2"></blockquote>
+								</div>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D27.4 Теги. Inline vs. GDS. для модификации. несколько значений одной модификации. переопределена только последняя. к элементу. </doc>
+						<source>
+							<b:test-block>
+								<e:test-element>
+									<m:test-mode-with-gds val="test-mode-value-1"/>
+									<m:test-mode-with-gds val="test-mode-value-2" tag="pre"/>
+								</e:test-element>
+							</b:test-block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div class="b-test-block">
+									<pre class="b-test-block__test-element b-test-block__test-element_test-mode-with-gds_test-mode-value-1 b-test-block__test-element_test-mode-with-gds_test-mode-value-2"></pre>
+								</div>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D27.5 Теги. Inline vs. GDS. для модификации. несколько. переопределена не последняя. к элементу.</doc>
+						<source>
+							<b:test-block>
+								<e:test-element>
+									<m:test-mode-1-with-gds val="test-mode-value" tag="blockquote"/>
+									<m:test-mode-2-with-gds val="test-mode-value"/>
+								</e:test-element>
+							</b:test-block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div class="b-test-block">
+									<blockquote class="b-test-block__test-element b-test-block__test-element_test-mode-1-with-gds_test-mode-value b-test-block__test-element_test-mode-2-with-gds_test-mode-value"></blockquote>
+								</div>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D27.6 Теги. Inline vs. GDS. для модификации. несколько. переопределена только последняя. к элементу.</doc>
+						<source>
+							<b:test-block>
+								<e:test-element>
+									<m:test-mode-1-with-gds val="test-mode-value"/>
+									<m:test-mode-2-with-gds val="test-mode-value" tag="pre"/>
+								</e:test-element>
+							</b:test-block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div class="b-test-block">
+									<pre class="b-test-block__test-element b-test-block__test-element_test-mode-1-with-gds_test-mode-value b-test-block__test-element_test-mode-2-with-gds_test-mode-value"></pre>
+								</div>
+							]]></cdata>
+						</html>
+					</test>
+
+
+					<test>
+						<doc>D28.1 Теги. Inline vs. GDS. для модификации дополнительного блока. к блоку. </doc>
+						<source>
+							<b:test-block-2>
+								<a:test-block>
+									<m:test-mode-with-gds val="test-mode-value" tag="blockquote"/>
+									</a:test-block>
+							</b:test-block-2>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<blockquote class="b-test-block-2 b-test-block b-test-block_test-mode-with-gds_test-mode-value"></blockquote>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D28.2 Теги. Inline vs. GDS. для модификации дополнительного блока. несколько значений одной модификации. к блоку. </doc>
+						<source>
+							<b:test-block-2>
+								<a:test-block>
+									<m:test-mode-with-gds val="test-mode-value-1" tag="blockquote"/>
+									<m:test-mode-with-gds val="test-mode-value-2" tag="pre"/>
+									</a:test-block>
+							</b:test-block-2>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<pre class="b-test-block-2 b-test-block b-test-block_test-mode-with-gds_test-mode-value-1 b-test-block_test-mode-with-gds_test-mode-value-2"></pre>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D28.3 Теги. Inline vs. GDS. для модификации дополнительного блока. несколько значений одной модификации. переопределена не последняя. к блоку. </doc>
+						<source>
+							<b:test-block-2>
+								<a:test-block>
+									<m:test-mode-with-gds val="test-mode-value-1" tag="blockquote"/>
+									<m:test-mode-with-gds val="test-mode-value-2"/>
+								</a:test-block>
+							</b:test-block-2>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<blockquote class="b-test-block-2 b-test-block b-test-block_test-mode-with-gds_test-mode-value-1 b-test-block_test-mode-with-gds_test-mode-value-2"></blockquote>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D28.4 Теги. Inline vs. GDS. для модификации дополнительного блока. несколько значений одной модификации. переопределена только последняя. к блоку. </doc>
+						<source>
+							<b:test-block-2>
+								<a:test-block>
+									<m:test-mode-with-gds val="test-mode-value-1"/>
+									<m:test-mode-with-gds val="test-mode-value-2" tag="pre"/>
+								</a:test-block>
+							</b:test-block-2>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<pre class="b-test-block-2 b-test-block b-test-block_test-mode-with-gds_test-mode-value-1 b-test-block_test-mode-with-gds_test-mode-value-2"></pre>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D28.5 Теги. Inline vs. GDS. для модификации дополнительного блока. несколько. переопределена не последняя. к блоку. </doc>
+						<source>
+							<b:test-block-2>
+								<a:test-block>
+									<m:test-mode-1-with-gds val="test-mode-value" tag="blockquote"/>
+									<m:test-mode-2-with-gds val="test-mode-value" />
+								</a:test-block>
+							</b:test-block-2>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<blockquote class="b-test-block-2 b-test-block b-test-block_test-mode-1-with-gds_test-mode-value b-test-block_test-mode-2-with-gds_test-mode-value"></blockquote>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D28.6 Теги. Inline vs. GDS. для модификации дополнительного блока. несколько. переопределена только последняя. к блоку. </doc>
+						<source>
+							<b:test-block-2>
+								<a:test-block>
+									<m:test-mode-1-with-gds val="test-mode-value"/>
+									<m:test-mode-2-with-gds val="test-mode-value" tag="pre"/>
+								</a:test-block>
+							</b:test-block-2>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<pre class="b-test-block-2 b-test-block b-test-block_test-mode-1-with-gds_test-mode-value b-test-block_test-mode-2-with-gds_test-mode-value"></pre>
+							]]></cdata>
+						</html>
+					</test>
+
+					<test>
+						<doc>D29.1 Теги. Inline vs. GDS. для модификации дополнительного блока. к элементу.</doc>
+					</test>
+					<test>
+						<doc>D29.2 Теги. Inline vs. GDS. для модификации дополнительного блока. несколько значений одной модификации к элементу.</doc>
+					</test>
+					<test>
+						<doc>D29.3 Теги. Inline vs. GDS. для модификации дополнительного блока. несколько значений одной модификации. переопределена не последняя. к элементу.</doc>
+					</test>
+					<test>
+						<doc>D29.4 Теги. Inline vs. GDS. для модификации дополнительного блока. несколько значений одной модификации. переопределена только последняя. к элементу.</doc>
+					</test>
+					<test>
+						<doc>D29.5 Теги. Inline vs. GDS. для модификации дополнительного блока. несколько. переопределена не последняя. к элементу.</doc>
+					</test>
+					<test>
+						<doc>D29.6 Теги. Inline vs. GDS. для модификации дополнительного блока. несколько. переопределена только последняя. к элементу.</doc>
+					</test>
+
+					<test>
+						<doc>D30.1 Теги. GDS vs. GDS. блок vs. дополнительный блок</doc>
+						<source>
+							<b:test-block-1-with-gds>
+								<a:test-block-2-with-gds/>
+							</b:test-block-1-with-gds>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<h2 class="b-test-block-1-with-gds b-test-block-2-with-gds"></h2>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D30.2 Теги. GDS vs. GDS. блок vs. дополнительный блок. несколько дополнительных</doc>
+						<source>
+							<b:test-block-1-with-gds>
+								<a:test-block-2-with-gds/>
+								<a:test-block-3-with-gds/>
+							</b:test-block-1-with-gds>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<h3 class="b-test-block-1-with-gds b-test-block-2-with-gds b-test-block-3-with-gds"></h3>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D31.1 Теги. GDS vs. GDS. элемент vs. дополнительный блок</doc>
+						<source>
+							<b:test-block>
+								<e:test-element-with-gds>
+									<a:test-block-2-with-gds/>
+								</e:test-element-with-gds>
+							</b:test-block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div class="b-test-block">
+									<h2 class="b-test-block__test-element-with-gds b-test-block-2-with-gds"></h2>
+								</div>
+
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D32.2 Теги. GDS vs. GDS. элемент vs. дополнительный блок. несколько дополнительных</doc>
+						<source>
+							<b:test-block>
+								<e:test-element-with-gds>
+									<a:test-block-2-with-gds/>
+									<a:test-block-3-with-gds/>
+								</e:test-element-with-gds>
+							</b:test-block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div class="b-test-block">
+									<h3 class="b-test-block__test-element-with-gds b-test-block-2-with-gds b-test-block-3-with-gds"></h3>
+								</div>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D33.1 Теги. GDS vs. GDS. блок vs. модификация.</doc>
+						<source>
+							<b:test-block-with-gds>
+								<m:test-mode-with-gds val="test-mode-value"/>
+							</b:test-block-with-gds>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<code class="b-test-block-with-gds b-test-block-with-gds_test-mode-with-gds_test-mode-value"></code>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D33.2 Теги. GDS vs. GDS. блок vs. модификация. несколько значений этой модификации</doc>
+						<source>
+							<b:test-block-with-gds>
+								<m:test-mode-with-gds val="test-mode-value-1"/>
+								<m:test-mode-with-gds val="test-mode-value-2"/>
+							</b:test-block-with-gds>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<h2 class="b-test-block-with-gds b-test-block-with-gds_test-mode-with-gds_test-mode-value-1 b-test-block-with-gds_test-mode-with-gds_test-mode-value-2"></h2>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D33.3 Теги. GDS vs. GDS. блок vs. модификация. несколько</doc>
+						<source>
+							<b:test-block-with-gds>
+								<m:test-mode-1-with-gds val="test-mode-value"/>
+								<m:test-mode-2-with-gds val="test-mode-value"/>
+							</b:test-block-with-gds>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<h2 class="b-test-block-with-gds b-test-block-with-gds_test-mode-1-with-gds_test-mode-value b-test-block-with-gds_test-mode-2-with-gds_test-mode-value"></h2>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D34.1 Теги. GDS vs. GDS. элемент vs. модификация.</doc>
+						<source>
+							<b:test-block>
+								<e:test-element-with-gds>
+									<m:test-mode-with-gds val="test-mode-value"/>
+								</e:test-element-with-gds>
+							</b:test-block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div class="b-test-block">
+									<code class="b-test-block__test-element-with-gds b-test-block__test-element-with-gds_test-mode-with-gds_test-mode-value"></code>
+								</div>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D34.2 Теги. GDS vs. GDS. элемент vs. модификация. несколько значений этой модификации</doc>
+						<source>
+							<b:test-block>
+								<e:test-element-with-gds>
+									<m:test-mode-with-gds val="test-mode-value-1"/>
+									<m:test-mode-with-gds val="test-mode-value-2"/>
+								</e:test-element-with-gds>
+							</b:test-block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div class="b-test-block">
+									<h2 class="b-test-block__test-element-with-gds b-test-block__test-element-with-gds_test-mode-with-gds_test-mode-value-1 b-test-block__test-element-with-gds_test-mode-with-gds_test-mode-value-2"></h2>
+								</div>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D34.3 Теги. GDS vs. GDS. элемент vs. модификация. несколько</doc>
+						<source>
+							<b:test-block>
+								<e:test-element-with-gds>
+									<m:test-mode-1-with-gds val="test-mode-value"/>
+									<m:test-mode-2-with-gds val="test-mode-value"/>
+								</e:test-element-with-gds>
+							</b:test-block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div class="b-test-block">
+									<h2 class="b-test-block__test-element-with-gds b-test-block__test-element-with-gds_test-mode-1-with-gds_test-mode-value b-test-block__test-element-with-gds_test-mode-2-with-gds_test-mode-value"></h2>
+								</div>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D35.1 Теги. GDS vs. GDS. блок vs. модификация на дополнительном блоке</doc>
+						<source>
+							<b:test-block-with-gds>
+								<a:test-block>
+									<m:test-mode-1-with-gds val="test-mode-value"/>
+								</a:test-block>
+							</b:test-block-with-gds>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<h1 class="b-test-block-with-gds b-test-block b-test-block_test-mode-1-with-gds_test-mode-value"></h1>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D35.1 Теги. GDS vs. GDS. блок vs. модификация на дополнительном блоке</doc>
+						<source>
+							<b:test-block-with-gds>
+								<a:test-block>
+									<m:test-mode-with-gds val="test-mode-value-1"/>
+									<m:test-mode-with-gds val="test-mode-value-2"/>
+								</a:test-block>
+							</b:test-block-with-gds>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<h2 class="b-test-block-with-gds b-test-block b-test-block_test-mode-with-gds_test-mode-value-1 b-test-block_test-mode-with-gds_test-mode-value-2"></h2>
+							]]></cdata>
+						</html>
+					</test>
+
+
+					<test>
+						<doc>D35.2 Теги. GDS vs. GDS. блок vs. модификация на дополнительном блоке. несколько значений этой модификаци</doc>
+					</test>
+					<test>
+						<doc>D35.3 Теги. GDS vs. GDS. блок vs. модификация на дополнительном блоке. несколько.</doc>
+					</test>
+					<test>
+						<doc>D36.1 Теги. GDS vs. GDS. элемент vs. модификация на дополнительном блоке</doc>
+					</test>
+					<test>
+						<doc>D36.2 Теги. GDS vs. GDS. элемент vs. модификация на дополнительном блоке. несколько значений этой модификаци</doc>
+					</test>
+					<test>
+						<doc>D36.3 Теги. GDS vs. GDS. элемент vs. модификация на дополнительном блоке. несколько.</doc>
+					</test>
+					<test>
+						<doc>D35.1 Теги. GDS vs. GDS. блок vs. доп.блок vs. модификация на дополнительном блоке</doc>
+					</test>
+					<test>
+						<doc>D35.2 Теги. GDS vs. GDS. блок vs. доп.блок vs. модификация на дополнительном блоке. несколько значений этой модификаци</doc>
+					</test>
+					<test>
+						<doc>D35.3 Теги. GDS vs. GDS. блок vs. доп.блок vs. модификация на дополнительном блоке. несколько.</doc>
+					</test>
+					<test>
+						<doc>D35.4 Теги. GDS vs. GDS. блок vs. доп.блок vs. модификация на дополнительном блоке. несколько доп. блоков. модификация не на последнем</doc>
+					</test>
+					<test>
+						<doc>D35.5 Теги. GDS vs. GDS. блок vs. доп.блок vs. модификация на дополнительном блоке. несколько доп. блоков. модификация только на последнем</doc>
+					</test>
+					<test>
+						<doc>D36.1 Теги. GDS vs. GDS. элемент vs. доп.блок vs. модификация на дополнительном блоке</doc>
+					</test>
+					<test>
+						<doc>D36.2 Теги. GDS vs. GDS. элемент vs. доп.блок vs. модификация на дополнительном блоке. несколько значений этой модификаци</doc>
+					</test>
+					<test>
+						<doc>D36.3 Теги. GDS vs. GDS. элемент vs. доп.блок vs. модификация на дополнительном блоке. несколько.</doc>
+					</test>
+					<test>
+						<doc>D36.4 Теги. GDS vs. GDS. элемент vs. доп.блок vs. модификация на дополнительном блоке. несколько доп. блоков. модификация не на последнем</doc>
+					</test>
+					<test>
+						<doc>D36.5 Теги. GDS vs. GDS. элемент vs. доп.блок vs. модификация на дополнительном блоке. несколько доп. блоков. модификация только на последнем</doc>
+					</test>
+
+
+
+					<test>
+						<doc>D40.1 Теги. Inline + GDS vs. GDS. блок (+инлайн) vs. доп. блок</doc>
+					</test>
+					<test>
+						<doc>D40.2 Теги. Inline + GDS vs. GDS. блок (+инлайн) vs. модификация</doc>
+					</test>
+					<test>
+						<doc>D40.3 Теги. Inline + GDS vs. GDS. блок (+инлайн) vs. модификация на доп. блоке</doc>
+					</test>
+					<test>
+						<doc>D40.4 Теги. Inline + GDS vs. GDS. блок (+инлайн) vs. доп. блок vs. модификация на доп. блоке</doc>
+					</test>
+					<test>
+						<doc>D40.5 Теги. Inline + GDS vs. GDS. блок vs. доп. блок (+инлайн)</doc>
+					</test>
+					<test>
+						<doc>D40.6 Теги. Inline + GDS vs. GDS. блок vs. модификация (+инлайн)</doc>
+					</test>
+					<test>
+						<doc>D40.7 Теги. Inline + GDS vs. GDS. блок vs. модификация на доп. блоке (+инлайн)</doc>
+					</test>
+					<test>
+						<doc>D40.8 Теги. Inline + GDS vs. GDS. блок vs. доп. блок (+инлайн) vs. модификация на доп. блоке</doc>
+					</test>
+
+					<test>
+						<doc>D41 - D40 for element</doc>
+					</test>
+
+					<test>
+						<doc>D42.1 Теги. Inline + GDS vs. Inline + GDS. блок (+инлайн) vs. доп. блок (+инлайн)</doc>
+					</test>
+					<test>
+						<doc>D42.2 Теги. Inline + GDS vs. Inline + GDS. блок (+инлайн) vs. модификация (+инлайн)</doc>
+					</test>
+					<test>
+						<doc>D42.3 Теги. Inline + GDS vs. Inline + GDS. блок (+инлайн) vs. модификация на доп. блоке (+инлайн)</doc>
+					</test>
+					<test>
+						<doc>D42.4 Теги. Inline + GDS vs. Inline + GDS. блок (+инлайн) vs. доп. блок (+инлайн) vs. модификация на доп. блоке</doc>
+					</test>
+					<test>
+						<doc>D42.5 Теги. Inline + GDS vs. Inline + GDS. блок (+инлайн) vs. доп. блок vs. модификация на доп. блоке (+инлайн)</doc>
+					</test>
+					<test>
+						<doc>D42.6 Теги. Inline + GDS vs. Inline + GDS. блок (+инлайн) vs. доп. блок (+инлайн) vs. модификация на доп. блоке (+инлайн)</doc>
+					</test>
+					<test>
+						<doc>D42.7 Теги. Inline + GDS vs. Inline + GDS. блок vs. доп. блок (+инлайн) vs. модификация на доп. блоке (+инлайн)</doc>
+					</test>
+
+					<test>
+						<doc>D19. Теги. Inline vs. GDS vs. GDS для модификации. для блока</doc>
+						<source>
+							<b:test-simple-g tag="h3">
+								<m:type val="simple-g"/>
+								Simple Mode G tag
+							</b:test-simple-g>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<h3 class="b-test-simple-g b-test-simple-g_type_simple-g">
+									Simple Mode G tag
+								</h3>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>D22. Теги. GDS. для элемента. несколько с одинаковым именем и разными блоками</doc>
+						<source>
+							<b:test-simple-1>
+								<b:test-simple-2>
+									<e:elem-1>1</e:elem-1>
+									<e:elem-1 block="test-simple-1">2</e:elem-1>
+								</b:test-simple-2>
+							</b:test-simple-1>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div class="b-test-simple-1">
+									<div class="b-test-simple-2">
+										<h1 class="b-test-simple-2__elem-1">1</h1>
+										<h2 class="b-test-simple-1__elem-1">2</h2>
+									</div>
+								</div>
+							]]></cdata>
+						</html>
+					</test>
+
+
+					<test>
+						<doc>D100. Правильность выбора тега. Элемент блока и элемент другого блока</doc>
+						<source>
+							<b:test-block>
+								<e:test-element-10-with-gds/>
+							</b:test-block>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div class="b-test-block">
+									<strong class="b-test-block__test-element-10-with-gds"></strong>
+								</div>
+							]]></cdata>
+						</html>
+					</test>
+
+					<!-- Теги < -->
+
+					<!-- Атрибуты > -->
+					<!--Атрибуты от более высокоуровневых сущностей добавляются на узел, если такие атрибуты уже имеются, то они перекрываются новыми.-->
+					<!--В случае, если сущность высокого уровня переназначает тег, то все уже атрибуты сущностей, имеющих тег, до этого уровня сбрасываются.-->
+
+					<!--<test>-->
+						<!--<doc>D200.1 X атрибуты. Инлайново. Блок без семантики</doc>-->
+						<!--<source>-->
+							<!--<b:test-block x:title="title"></b:test-block>-->
+						<!--</source>-->
+						<!--<html>-->
+							<!--<cdata><![CDATA[-->
+								<!--<div class="b-test-block" title="title"></div>-->
+							<!--]]></cdata>-->
+						<!--</html>-->
+					<!--</test>-->
+					<!--<test>-->
+						<!--<doc>D200.2 X атрибуты. Инлайново. Элемент без семантики</doc>-->
+						<!--<source>-->
+							<!--<b:test-block>-->
+								<!--<e:test-element x:title="title"></e:test-element>-->
+							<!--</b:test-block>-->
+						<!--</source>-->
+						<!--<html>-->
+							<!--<cdata><![CDATA[-->
+								<!--<div class="b-test-block">-->
+									<!--<div class="b-test-block__test-element" title="title"></div>-->
+								<!--</div>-->
+							<!--]]></cdata>-->
+						<!--</html>-->
+					<!--</test>-->
+					<!--<test>-->
+						<!--<doc>D200.3 X атрибуты. Инлайново. Модификация без семантики на блок без семантики</doc>-->
+						<!--<source>-->
+							<!--<b:test-block>-->
+								<!--<m:test-mode val="test-mode-value" x:title="title"/>-->
+							<!--</b:test-block>-->
+						<!--</source>-->
+						<!--<html>-->
+							<!--<cdata><![CDATA[-->
+								<!--<div class="b-test-block b-test-block_test-mode_test-mode-value" title="title"></div>-->
+							<!--]]></cdata>-->
+						<!--</html>-->
+					<!--</test>-->
+					<!--<test>-->
+						<!--<doc>D200.4 X атрибуты. Инлайново. Дополнительный блок без семантики на блок без семантики</doc>-->
+						<!--<source>-->
+							<!--<b:test-block>-->
+								<!--<a:test-block-2 x:title="title"/>-->
+							<!--</b:test-block>-->
+						<!--</source>-->
+						<!--<html>-->
+							<!--<cdata><![CDATA[-->
+								<!--<div class="b-test-block b-test-block-2" title="title"></div>-->
+							<!--]]></cdata>-->
+						<!--</html>-->
+					<!--</test>-->
+					<!--<test>-->
+						<!--<doc>D200.5 X атрибуты. Инлайново. Модификация без семантики на дополнительный блок без семантики к блоку без семантики</doc>-->
+						<!--<source>-->
+							<!--<b:test-block>-->
+								<!--<a:test-block-2>-->
+									<!--<m:test-mode val="test-mode-value" x:title="title"/>-->
+									<!--</a:test-block-2>-->
+							<!--</b:test-block>-->
+						<!--</source>-->
+						<!--<html>-->
+							<!--<cdata><![CDATA[-->
+								<!--<div class="b-test-block b-test-block-2 b-test-block-2_test-mode_test-mode-value" title="title"></div>-->
+							<!--]]></cdata>-->
+						<!--</html>-->
+					<!--</test>-->
+					<!--<test>-->
+						<!--<doc>D200.6 X атрибуты. Инлайново. Дополнительный блок без семантики на блок без семантики с атрибутами</doc>-->
+						<!--<source>-->
+							<!--<b:test-block x:title="title-b">-->
+								<!--<a:test-block-2 x:title="title-a"/>-->
+							<!--</b:test-block>-->
+						<!--</source>-->
+						<!--<html>-->
+							<!--<cdata><![CDATA[-->
+								<!--<div class="b-test-block b-test-block-2" title="title-a"></div>-->
+							<!--]]></cdata>-->
+						<!--</html>-->
+					<!--</test>-->
+					<!--<test>-->
+						<!--<doc>D200.7 X атрибуты. Инлайново. Модификация без семантики на блок без семантики с атрибутами</doc>-->
+						<!--<source>-->
+							<!--<b:test-block x:title="title-b">-->
+								<!--<m:test-mode val="test-mode-value" x:title="title-m"/>-->
+							<!--</b:test-block>-->
+						<!--</source>-->
+						<!--<html>-->
+
+							<!--<cdata><![CDATA[-->
+								<!--<div class="b-test-block b-test-block_test-mode_test-mode-value" title="title-m"></div>-->
+							<!--]]></cdata>-->
+						<!--</html>-->
+					<!--</test>-->
+					<!--<test>-->
+						<!--<doc>D200.8 X атрибуты. Инлайново. Модификация без семантики на дополнительный блок без семантики к блоку без семантики с атрибутами</doc>-->
+						<!--<source>-->
+							<!--<b:test-block x:title="title-b">-->
+								<!--<a:test-block-2 x:title="title-a">-->
+									<!--<m:test-mode val="test-mode-value" x:title="title-m"/>-->
+								<!--</a:test-block-2>-->
+							<!--</b:test-block>-->
+						<!--</source>-->
+						<!--<html>-->
+							<!--<cdata><![CDATA[-->
+								<!--<div class="b-test-block b-test-block-2 b-test-block-2_test-mode_test-mode-value" title="title-m"></div>-->
+							<!--]]></cdata>-->
+						<!--</html>-->
+					<!--</test>-->
+
+
+					<!--<test>-->
+						<!--<doc>D210.1 X атрибуты. GDS. Для блока</doc>-->
+						<!--<source>-->
+							<!--<b:test-block-with-x-attr/>-->
+						<!--</source>-->
+						<!--<html>-->
+							<!--<cdata><![CDATA[-->
+								<!--<div class="b-test-block-with-x-attr" title="gds-title"></div>-->
+							<!--]]></cdata>-->
+						<!--</html>-->
+					<!--</test>-->
+					<!--<test>-->
+						<!--<doc>D210.2 X атрибуты. GDS. Для элемента</doc>-->
+						<!--<source>-->
+							<!--<b:test-block>-->
+								<!--<e:test-element-with-x-attr/>-->
+							<!--</b:test-block>-->
+						<!--</source>-->
+						<!--<html>-->
+							<!--<cdata><![CDATA[-->
+								<!--<div class="b-test-block">-->
+									<!--<div class="b-test-block__test-element-with-x-attr" title="gds-element-title"></div>-->
+								<!--</div>-->
+							<!--]]></cdata>-->
+						<!--</html>-->
+					<!--</test>-->
+					<!--<test>-->
+						<!--<doc>D210.3 X атрибуты. GDS. Для модификации блока</doc>-->
+						<!--<source>-->
+							<!--<b:test-block>-->
+								<!--<m:test-mode-with-x-attr val="test-mode-value"/>-->
+							<!--</b:test-block>-->
+						<!--</source>-->
+						<!--<html>-->
+							<!--<cdata><![CDATA[-->
+								<!--<div class="b-test-block b-test-block_test-mode-with-x-attr_test-mode-value" title="gds-title"></div>-->
+							<!--]]></cdata>-->
+						<!--</html>-->
+					<!--</test>-->
+					<!--<test>-->
+						<!--<doc>D210.4 X атрибуты. GDS. Для модификации элемента</doc>-->
+						<!--<source>-->
+							<!--<b:test-block>-->
+								<!--<e:test-element>-->
+									<!--<m:test-mode-with-x-attr val="test-mode-value"/>-->
+								<!--</e:test-element>-->
+							<!--</b:test-block>-->
+						<!--</source>-->
+						<!--<html>-->
+							<!--<cdata><![CDATA[-->
+								<!--<div class="b-test-block">-->
+									<!--<div class="b-test-block__test-element b-test-block__test-element_test-mode-with-x-attr_test-mode-value" title="gds-title"></div>-->
+								<!--</div>-->
+							<!--]]></cdata>-->
+						<!--</html>-->
+					<!--</test>-->
+					<!--<test>-->
+						<!--<doc>D210.5 X атрибуты. GDS. Для дополнительного блока</doc>-->
+						<!--<source>-->
+							<!--<b:test-block>-->
+								<!--<a:test-block-2-with-x-attr/>-->
+							<!--</b:test-block>-->
+						<!--</source>-->
+						<!--<html>-->
+							<!--<cdata><![CDATA[-->
+								<!--<div class="b-test-block b-test-block-2-with-x-attr" title="gds-title-2"></div>-->
+							<!--]]></cdata>-->
+						<!--</html>-->
+					<!--</test>-->
+					<!--<test>-->
+						<!--<doc>D210.6 X атрибуты. GDS. Для дополнительного блока на элементе</doc>-->
+						<!--<source>-->
+							<!--<b:test-block>-->
+								<!--<e:test-element>-->
+									<!--<a:test-block-2-with-x-attr/>-->
+								<!--</e:test-element>-->
+							<!--</b:test-block>-->
+						<!--</source>-->
+						<!--<html>-->
+							<!--<cdata><![CDATA[-->
+								<!--<div class="b-test-block">-->
+									<!--<div class="b-test-block__test-element b-test-block-2-with-x-attr" title="gds-title-2"></div>-->
+								<!--</div>-->
+							<!--]]></cdata>-->
+						<!--</html>-->
+					<!--</test>-->
+					<!--<test>-->
+						<!--<doc>D210.7 X атрибуты. GDS. Для модификации дополнительного блока</doc>-->
+						<!--<source>-->
+							<!--<b:test-block>-->
+								<!--<a:test-block-2>-->
+									<!--<m:test-mode-with-x-attr val="test-mode-value"/>-->
+								<!--</a:test-block-2>-->
+							<!--</b:test-block>-->
+						<!--</source>-->
+						<!--<html>-->
+							<!--<cdata><![CDATA[-->
+								<!--<div class="b-test-block b-test-block-2 b-test-block-2_test-mode-with-x-attr_test-mode-value" title="gds-title"></div>-->
+							<!--]]></cdata>-->
+						<!--</html>-->
+					<!--</test>-->
+					<!--<test>-->
+						<!--<doc>D210.8 X атрибуты. GDS. Для модификации дополнительного блока на элементе</doc>-->
+						<!--<source>-->
+							<!--<b:test-block>-->
+								<!--<e:test-element>-->
+									<!--<a:test-block-2>-->
+										<!--<m:test-mode-with-x-attr val="test-mode-value"/>-->
+									<!--</a:test-block-2>-->
+								<!--</e:test-element>-->
+							<!--</b:test-block>-->
+						<!--</source>-->
+						<!--<html>-->
+							<!--<cdata><![CDATA[-->
+								<!--<div class="b-test-block">-->
+									<!--<div class="b-test-block__test-element b-test-block-2 b-test-block-2_test-mode-with-x-attr_test-mode-value" title="gds-title"></div>-->
+								<!--</div>-->
+							<!--]]></cdata>-->
+						<!--</html>-->
+					<!--</test>-->
+
+
+
+					<!--<test>-->
+						<!--<doc>D220.1 X атрибуты. Инлайн vs GDS</doc>-->
+						<!--<source>-->
+							<!--<b:test-block-with-x-attr x:title="title"/>-->
+						<!--</source>-->
+						<!--<html>-->
+							<!--<cdata><![CDATA[-->
+								<!--<div class="b-test-block-with-x-attr" title="title"></div>-->
+							<!--]]></cdata>-->
+						<!--</html>-->
+					<!--</test>-->
+
+
+
+					<!--<test>-->
+						<!--<doc>D230.1 X атрибуты. Инлайн vs GDS. побочный атрибут в GDS</doc>-->
+						<!--<source>-->
+							<!--<b:test-block-with-x-attr-spec x:title="title"/>-->
+						<!--</source>-->
+						<!--<html>-->
+							<!--<cdata><![CDATA[-->
+								<!--<div class="b-test-block-with-x-attr-spec" title="title" alt="gds-alt"></div>-->
+							<!--]]></cdata>-->
+						<!--</html>-->
+					<!--</test>-->
+					<!--<test>-->
+						<!--<doc>D230.2 X атрибуты. Перекрестные инлайн атрибуты</doc>-->
+						<!--<source>-->
+							<!--<b:test-block-with-x-attr-spec x:title="title">-->
+								<!--<a:test-block-2-with-x-attr x:alt="alt"/>-->
+							<!--</b:test-block-with-x-attr-spec>-->
+						<!--</source>-->
+						<!--<html>-->
+							<!--<cdata><![CDATA[-->
+								<!--<div class="b-test-block-with-x-attr-spec b-test-block-2-with-x-attr" title="title" alt="alt"></div>-->
+							<!--]]></cdata>-->
+						<!--</html>-->
+					<!--</test>-->
+
+					<!--<test>-->
+						<!--<doc>D300</doc>-->
+						<!--<source>-->
+							<!--<b:test-block tag="h1" x:data-test-param-1="val-1">-->
+								<!--<m:test-mode-with-x-attr val="test-mode-value" x:title="title4"/>-->
+								<!--&lt;!&ndash;x:title="title"&ndash;&gt;-->
+								<!--<a:test-block-with-gds-tag-with-x-attr/>-->
+								<!--&lt;!&ndash;tag="h3" x:title="title2"&ndash;&gt;-->
+								<!--<a:test-block-2-with-gds-tag-with-x-attr>-->
+									<!--&lt;!&ndash;x:title="title3"&ndash;&gt;-->
+									<!--<m:test-mode-with-x-attr val="test-mode-value" tag="h4"/>-->
+								<!--</a:test-block-2-with-gds-tag-with-x-attr>-->
+
+							<!--</b:test-block>-->
+						<!--</source>-->
+						<!--<html>-->
+							<!--<cdata><![CDATA[-->
+								<!--<h4 class="b-test-block b-test-block_test-mode-with-x-attr_test-mode-value b-test-block-with-gds-tag-with-x-attr b-test-block-2-with-gds-tag-with-x-attr b-test-block-2-with-gds-tag-with-x-attr_test-mode-with-x-attr_test-mode-value" title="title4"></h4>-->
+							<!--]]></cdata>-->
+						<!--</html>-->
+					<!--</test>-->
+
+					<!--<test>-->
+						<!--<doc>D400. Additional @noblock attr</doc>-->
+						<!--<source>-->
+							<!--<b:test-block>-->
+								<!--<a:params noblock="true" x:title="title" />-->
+							<!--</b:test-block>-->
+						<!--</source>-->
+						<!--<html>-->
+							<!--<cdata><![CDATA[-->
+								<!--<div class="b-test-block" title="title"></div>-->
+							<!--]]></cdata>-->
+						<!--</html>-->
+					<!--</test>-->
+
+
+					<!-- Атрибуты < -->
+				</tests>
+
+			</page-canvas>
+
+</page>

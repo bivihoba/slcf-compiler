@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xml" href="../utilities/master.xsl"?>
+<page
+		xmlns:a="http://slcf/templates/settings/bem-scheme/additional"
+		xmlns:b="http://slcf/templates/settings/bem-scheme/block"
+		xmlns:d="http://slcf/templates/settings/bem-scheme/data"
+		xmlns:e="http://slcf/templates/settings/bem-scheme/element"
+		xmlns:p="http://slcf/templates/settings/bem-scheme/pointer"
+		xmlns:m="http://slcf/templates/settings/bem-scheme/modification"
+		xmlns:t="http://slcf/templates/settings/bem-scheme/template"
+		xmlns:x="http://slcf/templates/settings/bem-scheme/xhtml"
+		xmlns:alxc="http://slcf/templates/settings/bem-scheme/additional-legacy-xhtml-class"
+		>
+	<project>
+		<include xmlns="http://www.w3.org/2001/XInclude" href="../settings/settings.xml"/>
+		<settings>
+			<include xmlns="http://www.w3.org/2001/XInclude" href="../settings/__tests/templates_tests.xml"/>
+			<include xmlns="http://www.w3.org/2001/XInclude" href="../settings/__tests/templates_test-layer.xml"/>
+			<include xmlns="http://www.w3.org/2001/XInclude" href="../settings/__tests/templates_test-layer__part2.xml"/>
+		</settings>
+		<settings>
+			<include xmlns="http://www.w3.org/2001/XInclude" href="../settings/__tests/templates_test-layer2.xml"/>
+		</settings>
+	</project>
+	<meta>
+		<description>тест-кейсы для шаблонов</description>
+	</meta>
+	<title handle="tests">Тесты</title>
+
+		<templates>
+			<t:test-template_scope_page>
+				<b:test-block>
+					Page Template
+				</b:test-block>
+			</t:test-template_scope_page>
+
+
+			<t:test-template_override-scope_global-by-page>
+				<b:test-block>
+					Page Template - Win
+				</b:test-block>
+			</t:test-template_override-scope_global-by-page>
+<!--
+			<t:test-template_scope_page>
+				<b:test-block>
+					Page Template
+				</b:test-block>
+			</t:test-template_scope_page>
+-->
+
+		</templates>
+
+		<page-canvas>
+				<tests>
+					<test>
+						<doc>T100</doc>
+						<source>
+							<p:test-template/>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div class="b-test-block">
+									Simple Global Template
+								</div>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>T100.2</doc>
+						<source>
+							<p:test-template-with-and-only-callback>
+								Simple Global Template
+							</p:test-template-with-and-only-callback>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div class="b-test-block">
+									Simple Global Template
+								</div>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>T100.3</doc>
+						<source>
+							<p:test-template-with-callback>
+								<b:test-block>
+									Simple Global Template
+								</b:test-block>
+							</p:test-template-with-callback>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div class="b-test-block">
+									Simple Global Template
+								</div>
+								<div class="b-test-block">
+									Simple Global Template
+								</div>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>T100.4</doc>
+						<source>
+							<p:test-template_scope_page/>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div class="b-test-block">
+									Page Template
+								</div>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>T100.5</doc>
+						<source>
+							<p:test-template_override-scope_global-by-page/>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div class="b-test-block">
+									Page Template - Win
+								</div>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>T100.6</doc>
+						<source>
+							<p:test-template_override-scope_global-by-layer/>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div class="b-test-block">
+									Layer Template - Win
+								</div>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>T100.7</doc>
+						<source>
+							<p:test-template_override-scope_global-by-layer2/>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div class="b-test-block">
+									Layer 2 Template - Win
+								</div>
+							]]></cdata>
+						</html>
+					</test>
+					<test>
+						<doc>T100.8</doc>
+						<source>
+							<p:test-template_override-scope_global-by-layer__part/>
+						</source>
+						<html>
+							<cdata><![CDATA[
+								<div class="b-test-block">
+									Layer Template Part 2 - Win
+								</div>
+							]]></cdata>
+						</html>
+					</test>
+					<!-- Атрибуты < -->
+				</tests>
+
+			</page-canvas>
+</page>

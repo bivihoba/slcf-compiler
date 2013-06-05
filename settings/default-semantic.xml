@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<default-semantic
+	xmlns:a="http://slcf/templates/settings/bem-scheme/additional"
+	xmlns:b="http://slcf/templates/settings/bem-scheme/block"
+	xmlns:d="http://slcf/templates/settings/bem-scheme/data"
+	xmlns:e="http://slcf/templates/settings/bem-scheme/element"
+	xmlns:p="http://slcf/templates/settings/bem-scheme/pointer"
+	xmlns:m="http://slcf/templates/settings/bem-scheme/modification"
+	xmlns:t="http://slcf/templates/settings/bem-scheme/template"
+	xmlns:x="http://slcf/templates/settings/bem-scheme/xhtml"
+	xmlns:un="http://slcf/templates/settings/bem-scheme/unknown-namespace"
+	xmlns:alxc="http://slcf/templates/settings/bem-scheme/additional-legacy-xhtml-class"
+	>
+
+	<!-- test blocks > -->
+
+	<b:test-block-with-gds tag="p"/>
+
+	<b:test-block-1-with-gds tag="h1"/>
+	<b:test-block-2-with-gds tag="h2"/>
+	<b:test-block-3-with-gds tag="h3"/>
+
+	<e:test-element-with-gds block="test-block" tag="p"/>
+
+	<b:test-element-10-with-gds tag="b"/>
+	<e:test-element-10-with-gds block="test-block-2" tag="b"/>
+	<e:test-element-10-with-gds block="test-block" tag="strong"/>
+	<e:test-element-10-with-gds block="test-block-2" tag="b"/>
+	<b:test-element-10-with-gds tag="b"/>
+
+	<e:test-element-20-with-gds block="test-block-20" tag="b"/>
+
+	<e:test-element-12-with-gds block="test-block" tag="s"/>
+	<e:test-element-11-with-gds block="test-block" tag="i"/>
+	<e:test-element-12-with-gds block="test-block" tag="s"/>
+	<e:test-element-11-with-gds block="test-block" tag="i"/>
+
+	<m:test-mode val="test-mode-value-with-gds" block="test-block" element="test-element" tag="p"/>
+	<m:test-mode val="test-mode-value-1-with-gds" block="test-block" element="test-element" tag="h1"/>
+	<m:test-mode val="test-mode-value-2-with-gds" block="test-block" element="test-element" tag="h2"/>
+	<m:test-mode-1 val="test-mode-value-with-gds" block="test-block" element="test-element" tag="h1"/>
+	<m:test-mode-2 val="test-mode-value-with-gds" block="test-block" element="test-element" tag="h2"/>
+
+	<m:test-mode val="test-mode-value-with-gds" block="test-block" tag="p"/>
+	<m:test-mode val="test-mode-value-1-with-gds" block="test-block" tag="h1"/>
+	<m:test-mode val="test-mode-value-2-with-gds" block="test-block" tag="h2"/>
+	<m:test-mode-1 val="test-mode-value-with-gds" block="test-block" tag="h1"/>
+	<m:test-mode-2 val="test-mode-value-with-gds" block="test-block" tag="h2"/>
+
+	<m:test-mode val="test-mode-value-with-gds" block="test-block-2" tag="p"/>
+	<m:test-mode val="test-mode-value-1-with-gds" block="test-block-2" tag="h1"/>
+	<m:test-mode val="test-mode-value-2-with-gds" block="test-block-2" tag="h2"/>
+	<m:test-mode-1 val="test-mode-value-with-gds" block="test-block-2" tag="h1"/>
+	<m:test-mode-2 val="test-mode-value-with-gds" block="test-block-2" tag="h2"/>
+
+	<m:test-mode-with-gds val="test-mode-value" block="test-block" tag="p"/>
+	<m:test-mode-with-gds val="test-mode-value-1" block="test-block" tag="h1"/>
+	<m:test-mode-with-gds val="test-mode-value-2" block="test-block" tag="h2"/>
+	<m:test-mode-1-with-gds val="test-mode-value" block="test-block" tag="h1"/>
+	<m:test-mode-2-with-gds val="test-mode-value" block="test-block" tag="h2"/>
+
+	<m:test-mode-with-gds val="test-mode-value" block="test-block" element="test-element" tag="p"/>
+	<m:test-mode-with-gds val="test-mode-value-1" block="test-block" element="test-element" tag="h1"/>
+	<m:test-mode-with-gds val="test-mode-value-2" block="test-block" element="test-element" tag="h2"/>
+	<m:test-mode-1-with-gds val="test-mode-value" block="test-block" element="test-element" tag="h1"/>
+	<m:test-mode-2-with-gds val="test-mode-value" block="test-block" element="test-element" tag="h2"/>
+
+	<m:test-mode-with-gds val="test-mode-value" block="test-block-with-gds" tag="code"/>
+	<m:test-mode-with-gds val="test-mode-value-1" block="test-block-with-gds" tag="h1"/>
+	<m:test-mode-with-gds val="test-mode-value-2" block="test-block-with-gds" tag="h2"/>
+	<m:test-mode-1-with-gds val="test-mode-value" block="test-block-with-gds" tag="h1"/>
+	<m:test-mode-2-with-gds val="test-mode-value" block="test-block-with-gds" tag="h2"/>
+
+	<m:test-mode-with-gds val="test-mode-value" block="test-block" element="test-element-with-gds" tag="code"/>
+	<m:test-mode-with-gds val="test-mode-value-1" block="test-block" element="test-element-with-gds" tag="h1"/>
+	<m:test-mode-with-gds val="test-mode-value-2" block="test-block" element="test-element-with-gds" tag="h2"/>
+	<m:test-mode-1-with-gds val="test-mode-value" block="test-block" element="test-element-with-gds" tag="h1"/>
+	<m:test-mode-2-with-gds val="test-mode-value" block="test-block" element="test-element-with-gds" tag="h2"/>
+
+	<b:test-block-with-gds-attr tag="abbr" x:title="#"/>
+	<b:test-block-2-with-gds-attr tag="abbr" x:title="#"/>
+
+	<b:test-block-with-x-attr x:title="gds-title"/>
+	<b:test-block-2-with-x-attr x:title="gds-title-2"/>
+	<b:test-block-with-x-attr-spec x:title="gds-title" x:alt="gds-alt"/>
+
+	<b:test-block-with-xmlns xmlns:v="http://rdf.data-vocabulary.org/#"/>
+
+	<m:test-mode-with-x-attr block="test-block" val="test-mode-value" x:title="gds-title"/>
+	<m:test-mode-with-x-attr block="test-block-2" val="test-mode-value" x:title="gds-title"/>
+	<m:test-mode-with-x-attr block="test-block" element="test-element" val="test-mode-value" x:title="gds-title"/>
+	<e:test-element-with-x-attr block="test-block" x:title="gds-element-title"/>
+
+	<b:bla-la-la tag="input"/>
+	<b:test-simple-g tag="span"/>
+	<e:elem block="test-simple-g" tag="strong"/>
+	<e:elem block="test-simple" tag="strong"/>
+	<b:test-simple-ga tag="p"/>
+
+	<!--<m:type val="pseudo" block="test-simple" x:alt="ddd" />-->
+	<m:type val="pseudo" block="test-simple" tag="abbr"/>
+
+	<m:type val="simple-g" block="test-simple-g" tag="i"/>
+
+	<m:type val="simple-1" block="test-simple" tag="h1"/>
+	<m:type val="simple-2" block="test-simple" tag="h2"/>
+
+	<m:type val="simple-1" block="test-simple-a" tag="h1"/>
+	<m:type val="simple-2" block="test-simple-a" tag="h2"/>
+	<m:type val="simple-4" block="test-simple-a" tag="h4"/>
+
+
+	<e:elem-1 block="test-simple-2" tag="h1" />
+	<e:elem-1 block="test-simple-1" tag="h2" />
+
+	<!-- test blocks < -->
+
+	<!--html document > -->
+		<b:xdocument noclass="true" tag="html" x:lang="ru" x:id="nojs"/>
+		<e:head block="xdocument" noclass="true" tag="head"/>
+		<e:title block="xdocument" noclass="true" tag="title"/>
+		<e:body block="xdocument" noclass="true" tag="body"/>
+		<b:xlink noclass="true" tag="link"/>
+			<m:style block="xlink" x:rel="stylesheet" x:media="screen"/>
+			<m:favicon block="xlink" x:rel="shortcut icon" x:href="favicon.ico" x:type="image/x-icon"/>
+
+		<b:xstyle noclass="true" tag="style" x:type="text/css"/>
+		<b:xscript noclass="true" tag="script" x:type="text/javascript" x:src="js/jquery.js"/>
+		<b:xmeta noclass="true" tag="meta"/>
+		<m:content val="charset" block="xmeta" x:charset="utf-8"/>
+		<m:content val="description" block="xmeta" x:name="description" x:content="Softline"/>
+		<m:content val="keywords" block="xmeta" x:name="keywords" x:content="Softline"/>
+		<m:content val="viewport" block="xmeta" x:name="viewport" x:content="width=1024"/>
+		<m:content val="imagetoolbar" block="xmeta" x:http-equiv="imagetoolbar" x:content="no"/>
+		<m:content val="user-agent" block="xmeta" x:http-equiv="X-UA-Compatible" x:content="IE=edge"/>
+	<!--html document < -->
+
+</default-semantic>
