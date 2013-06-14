@@ -23,5 +23,6 @@
 	</templates>
 
 	<page-canvas>
+		<p:xdocument/>
 	</page-canvas>
 </page>
