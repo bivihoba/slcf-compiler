@@ -1,3 +1,7 @@
+<!ENTITY nbsp "&#160;">
+<!ENTITY copy "&#151;">
+<!ENTITY styles_version "production">
+<!ENTITY user_status "guest">
 <!ENTITY pointer-namespace "http://slcf/templates/settings/bem-scheme/pointer">
 <!ENTITY template-namespace "http://slcf/templates/settings/bem-scheme/template">
 <!ENTITY data-namespace "http://slcf/templates/settings/bem-scheme/data">
@@ -8,6 +12,3 @@
 <!ENTITY xhtml-namespace "http://slcf/templates/settings/bem-scheme/xhtml">
 <!ENTITY unknown-namespace "http://slcf/templates/settings/bem-scheme/unknown-namespace">
 <!ENTITY legacy-xhtml-namespace "http://slcf/templates/settings/bem-scheme/additional-legacy-xhtml-class">
-
-<!ENTITY nbsp "&#160;">
-<!ENTITY copy "&#151;">

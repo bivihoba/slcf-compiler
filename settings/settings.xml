@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<settings>
-	<include xmlns="http://www.w3.org/2001/XInclude" href="default-semantic.xml"/>
-	<include xmlns="http://www.w3.org/2001/XInclude" href="t__xdocument.xml"/>
-	<include xmlns="http://www.w3.org/2001/XInclude" href="templates.xml"/>
-</settings>

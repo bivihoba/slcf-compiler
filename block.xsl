@@ -1,5 +1,5 @@
 <!DOCTYPE xsl:stylesheet [
-<!ENTITY % core SYSTEM "../settings/s.dtd"> %core;
+<!ENTITY % core SYSTEM "s.dtd"> %core;
 ]>
 <xsl:stylesheet version="1.0"
 				xmlns="http://www.w3.org/1999/xhtml"
@@ -70,8 +70,6 @@
 	 					 e:*[ancestor::node()/@tag='small'] |
 	 					 b:*[ancestor::node()/@tag='label'] |
 	 					 e:*[ancestor::node()/@tag='label'] |
-	 					 b:*[ancestor::node()/@tag='dt'] |
-	 					 e:*[ancestor::node()/@tag='dt'] |
 	 					 b:*[ancestor::node()/@tag='p'] |
 	 					 e:*[ancestor::node()/@tag='p'] |
 	 					 b:*[ancestor::node()/@tag='h1'] |
@@ -85,7 +83,11 @@
 	 					 b:*[ancestor::node()/@tag='h5'] |
 	 					 e:*[ancestor::node()/@tag='h5'] |
 	 					 b:*[ancestor::node()/@tag='h6'] |
-	 					 e:*[ancestor::node()/@tag='h6']
+	 					 e:*[ancestor::node()/@tag='h6'] |
+	 					 b:*[ancestor::node()/@tag='dt'] |
+	 					 e:*[ancestor::node()/@tag='dt'] |
+	 					 b:*[ancestor::node()/@tag='abbr'] |
+	 					 e:*[ancestor::node()/@tag='abbr']
 	 					 " mode="default">
 		<xsl:apply-templates select="." mode="tag">
 			<xsl:with-param name="tag" select="'span'" />

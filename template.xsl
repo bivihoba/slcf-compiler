@@ -1,5 +1,5 @@
 <!DOCTYPE xsl:stylesheet [
-<!ENTITY % core SYSTEM "../settings/s.dtd"> %core;
+<!ENTITY % core SYSTEM "s.dtd"> %core;
 ]>
 <xsl:stylesheet version="1.0"
 				xmlns="http://www.w3.org/1999/xhtml"
