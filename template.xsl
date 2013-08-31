@@ -57,8 +57,8 @@
 		<xsl:apply-templates select="exsl:node-set($block-bem-tree)" mode="canonical" />
 	</xsl:variable>
 
-	<xsl:template match="page/page-canvas" xml:space="preserve"><xsl:apply-templates select="exsl:node-set($canonical-bem-tree)" /></xsl:template>
-	<!--<xsl:template match="page/page-canvas" xml:space="preserve"><xsl:apply-templates select="exsl:node-set($canonical-bem-tree)" mode="pre" /></xsl:template>-->
+	<!--<xsl:template match="page/page-canvas" xml:space="preserve"><xsl:apply-templates select="exsl:node-set($canonical-bem-tree)" /></xsl:template>-->
+	<xsl:template match="page/page-canvas" xml:space="preserve"><xsl:apply-templates select="exsl:node-set($canonical-bem-tree)" mode="pre" /></xsl:template>
 	<!--<xsl:template match="page/page-canvas" xml:space="preserve"><xsl:apply-templates select="exsl:node-set($block-bem-tree)" /></xsl:template>-->
 	<!--<xsl:template match="page/page-canvas" xml:space="preserve"><xsl:apply-templates select="exsl:node-set($block-bem-tree)" mode="pre" /></xsl:template>-->
 	<!--<xsl:template match="page/page-canvas" xml:space="preserve"><xsl:apply-templates select="exsl:node-set($rendering-tree)" /></xsl:template>-->
@@ -393,9 +393,6 @@
 													</xsl:template>
 
 														<xsl:template match="*" mode="set-semantics__tail_control_gds-block">
-
-
-
 															<xsl:apply-templates select="." mode="set-semantics__node-callback"/>
 														</xsl:template>
 
@@ -435,21 +432,71 @@
 		<xsl:template match="*" mode="semantic__tag-index"/>
 
 			<xsl:template match="b:*[key('semantic',name())[@tag and namespace-uri() = '&block-namespace;']]" mode="set-semantic__tag-index">
-				<xsl:param name="high-priority-tag" select="generate-id(key('semantic',name())[@tag and namespace-uri() = '&block-namespace;'])"/>
+				<xsl:param
+						name="high-priority-tag"
+						select="generate-id(key('semantic',name())[
+																			(@tag) and
+																			(namespace-uri() = '&block-namespace;')
+																		][
+																			not(../following-sibling::default-semantic/*[
+																																	(name() = name(current())) and
+																																	(@tag)
+																															  ])
+																	 	])"/>
 				<xsl:apply-templates select="." mode="__set-semantics__node-callback">
 					<xsl:with-param name="high-priority-tag" select="$high-priority-tag"/>
 				</xsl:apply-templates>
 			</xsl:template>
 
-			<xsl:template match="e:*[key('semantic',name())[@tag and namespace-uri() = '&element-namespace;']]" mode="set-semantic__tag-index">
-				<xsl:param name="high-priority-tag" select="generate-id(key('semantic',name())[@tag and @block = current()/@block and namespace-uri() = '&element-namespace;'])"/>
+			<xsl:template match="e:*[
+										key('semantic',name())[
+																	@tag and
+																	@block = current()/@block and
+																	namespace-uri() = '&element-namespace;'
+																]
+										]" mode="set-semantic__tag-index">
+				<xsl:param
+						name="high-priority-tag"
+						select="generate-id(key('semantic',name())[
+																			(@tag) and
+																			(@block = current()/@block) and
+																			(namespace-uri() = '&element-namespace;')
+																		][
+																			not(../following-sibling::default-semantic/*[
+																																	(local-name() = local-name(current())) and
+																																	(@tag) and
+																																	(@block = current()/@block) and
+																																	(namespace-uri() = '&element-namespace;')
+																																])
+																		])"/>
 				<xsl:apply-templates select="." mode="__set-semantics__node-callback">
 					<xsl:with-param name="high-priority-tag" select="$high-priority-tag"/>
 				</xsl:apply-templates>
 			</xsl:template>
 
-			<xsl:template match="m:*[not(@val) and key('semantic',name())[@tag and not(@element) and (@block = current()/@block) and not(@val)]]" mode="set-semantic__tag-index">
-				<xsl:param name="high-priority-tag" select="generate-id(key('semantic',name())[@tag and not(@element) and (@block = current()/@block) and not(@val)])"/>
+			<xsl:template match="m:*[
+											not(@val) and
+											key('semantic',name())[
+																		@tag and
+																		not(@element) and
+																		(@block = current()/@block) and
+																		not(@val)]]" mode="set-semantic__tag-index">
+				<xsl:param
+						name="high-priority-tag"
+						select="generate-id(key('semantic',name())[
+																		(@tag) and
+																		not(@element) and
+																		(@block = current()/@block) and
+																		not(@val)
+																	][
+																		not(../following-sibling::default-semantic/*[
+																															(name() = name(current())) and
+																															(@tag) and
+																															not(@element) and
+																															(@block = current()/@block) and
+																															not(@val)
+																														])
+																	])"/>
 				<xsl:apply-templates select="." mode="__set-semantics__node-callback">
 					<xsl:with-param name="high-priority-tag" select="$high-priority-tag"/>
 				</xsl:apply-templates>
@@ -462,8 +509,32 @@
 				</xsl:apply-templates>
 			</xsl:template>
 
-			<xsl:template match="m:*[@val and key('semantic',name())[@tag and not(@element) and (@block = current()/@block) and (@val = current()/@val)]]" mode="set-semantic__tag-index">
-				<xsl:param name="high-priority-tag" select="generate-id(key('semantic',name())[@tag and not(@element) and (@block = current()/@block) and (@val = current()/@val)])"/>
+			<xsl:template match="m:*[
+										@val and
+										key('semantic',name())[
+																	@tag and
+																	not(@element) and
+																	(@block = current()/@block) and
+																	(@val = current()/@val)
+																]
+										]" mode="set-semantic__tag-index">
+				<xsl:param
+						name="high-priority-tag"
+						select="generate-id(key('semantic',name())[
+																		@tag and
+																		not(@element) and
+																		(@block = current()/@block)
+																		and (@val = current()/@val)
+
+																	][
+																		not(../following-sibling::default-semantic/*[
+																															(name() = name(current())) and
+																															@tag and
+																															not(@element) and
+																															(@block = current()/@block)
+																															and (@val = current()/@val)
+																														])
+																	])"/>
 				<xsl:apply-templates select="." mode="__set-semantics__node-callback">
 					<xsl:with-param name="high-priority-tag" select="$high-priority-tag"/>
 				</xsl:apply-templates>
