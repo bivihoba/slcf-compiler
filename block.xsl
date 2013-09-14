@@ -19,7 +19,6 @@
 				exclude-result-prefixes="a b c e x d p m t alxc un"
 				extension-element-prefixes="exsl"
 		>
-		<!--xmlns="http://slcf/templates/settings/bem-scheme"-->
 
 	<xsl:variable name="block-namespace" select="'http://slcf/templates/settings/bem-scheme/block'"/>
 	<xsl:variable name="element-namespace" select="'http://slcf/templates/settings/bem-scheme/element'"/>

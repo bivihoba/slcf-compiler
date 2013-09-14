@@ -30,7 +30,6 @@
 	<xsl:variable name="legacy-xhtml-namespace" select="'&legacy-xhtml-namespace;'"/>
 	<xsl:variable name="unknown-namespace" select="'&unknown-namespace;'"/>
 
-	<!--<xsl:key name="this" match="e:*[not(@block)]" use="current()"/>-->
 	<xsl:key name="template" match="//project/settings/templates/t:*[not(@type)]" use="local-name()"/>
 	<xsl:key name="template_type" match="//project/settings/templates/t:*[@type]" use="local-name()"/>
 	<xsl:key name="template-callback" match="//p:*[not(local-name() = 'content')][not(@type)]" use="generate-id(.)"/>
