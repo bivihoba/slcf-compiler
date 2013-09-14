@@ -1,7 +1,3 @@
-<!ENTITY nbsp "&#160;">
-<!ENTITY copy "&#151;">
-<!ENTITY styles_version "production">
-<!ENTITY user_status "guest">
 <!ENTITY pointer-namespace "http://slcf/templates/settings/bem-scheme/pointer">
 <!ENTITY template-namespace "http://slcf/templates/settings/bem-scheme/template">
 <!ENTITY data-namespace "http://slcf/templates/settings/bem-scheme/data">
