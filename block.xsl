@@ -241,12 +241,29 @@
 		<xsl:value-of select="$class-name"/>
 	</xsl:template>
 
+	<xsl:template match="m:*[not(@val)]" mode="class">
+		<xsl:param name="block-name" select="@block" />
+		<xsl:param name="mode-name" select="local-name()"/>
+		<xsl:param name="class-name" select="concat($prefix,$block-name,$s-mode,$mode-name)"/>
+		<xsl:text> </xsl:text>
+		<xsl:value-of select="$class-name"/>
+	</xsl:template>
+
 	<xsl:template match="m:*[@element]" mode="class">
 		<xsl:param name="block-name" select="@block" />
 		<xsl:param name="element-name" select="@element" />
 		<xsl:param name="mode-name" select="local-name()"/>
 		<xsl:param name="mode-value" select="@val"/>
 		<xsl:param name="class-name" select="concat($prefix,$block-name,$s-element,$element-name,$s-mode,$mode-name,$s-mode,$mode-value)"/>
+		<xsl:text> </xsl:text>
+		<xsl:value-of select="$class-name"/>
+	</xsl:template>
+
+	<xsl:template match="m:*[@element and not(@val)]" mode="class">
+		<xsl:param name="block-name" select="@block" />
+		<xsl:param name="element-name" select="@element" />
+		<xsl:param name="mode-name" select="local-name()"/>
+		<xsl:param name="class-name" select="concat($prefix,$block-name,$s-element,$element-name,$s-mode,$mode-name)"/>
 		<xsl:text> </xsl:text>
 		<xsl:value-of select="$class-name"/>
 	</xsl:template>
