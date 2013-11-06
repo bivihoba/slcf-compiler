@@ -198,7 +198,7 @@
 		<xsl:text> </xsl:text>
 	</xsl:template>
 
-	<xsl:template match="b:*[@nobem]/alxc:* | e:*[@nobem]/alxc:*" mode="position"/>
+	<xsl:template match="b:*[@nobem]/alxc:*[not(preceding-sibling::alxc:*)] | e:*[@nobem]/alxc:*[not(preceding-sibling::alxc:*)]" mode="position"/>
 
 	<xsl:template match="b:* | a:*" mode="class_self">
 		<xsl:param name="class-name" select="concat($prefix,local-name())"/>
