@@ -18,6 +18,7 @@
 				exclude-result-prefixes="a b e x d p m t alxc"
 				extension-element-prefixes="exsl">
 	<xsl:import href="block.xsl" />
+	<xsl:import href="scheme.xsl" />
 
 	<xsl:variable name="data-namespace" select="'&data-namespace;'"/>
 	<xsl:variable name="template-namespace" select="'&template-namespace;'"/>
@@ -56,7 +57,27 @@
 		<xsl:apply-templates select="exsl:node-set($block-bem-tree)" mode="canonical" />
 	</xsl:variable>
 
-	<xsl:template match="page/page-canvas" xml:space="preserve"><xsl:apply-templates select="exsl:node-set($canonical-bem-tree)" /></xsl:template>
+	<xsl:variable name="index-bem-tree">
+		<xsl:apply-templates select="exsl:node-set($canonical-bem-tree)" mode="pre" />
+	</xsl:variable>
+
+	<xsl:template match="page/page-canvas" xml:space="preserve">
+
+		<xsl:apply-templates select="exsl:node-set($canonical-bem-tree)" mode="pre" />
+
+		<exsl:document
+				href="index.xml"
+				indent="yes"
+				omit-xml-declaration="yes"
+				>
+				<bem-index>
+					<xsl:apply-templates select="exsl:node-set($canonical-bem-tree)" mode="decl"/>
+				</bem-index>
+				<!--<xsl:apply-templates select="exsl:node-set($index-bem-tree)" mode="decl" />-->
+		</exsl:document>
+
+	</xsl:template>
+
 	<!--<xsl:template match="page/page-canvas" xml:space="preserve"><xsl:apply-templates select="exsl:node-set($canonical-bem-tree)" mode="pre" /></xsl:template>-->
 	<!--<xsl:template match="page/page-canvas" xml:space="preserve"><xsl:apply-templates select="exsl:node-set($block-bem-tree)" /></xsl:template>-->
 	<!--<xsl:template match="page/page-canvas" xml:space="preserve"><xsl:apply-templates select="exsl:node-set($block-bem-tree)" mode="pre" /></xsl:template>-->
