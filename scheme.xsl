@@ -22,6 +22,15 @@
 		<!--<xsl:apply-templates select="//page-canvas" mode="decl"/>-->
 	<!--</xsl:template>-->
 
+	<xsl:template match="*" mode="clean-decl"/>
+
+	<xsl:template match="*[
+								@type = 'block' and
+								not(preceding-sibling::node()[@type='block' and @block=current()/@block])
+							]" mode="clean-decl">
+		<xsl:copy-of select="."/>
+	</xsl:template>
+
 	<xsl:template match="*" mode="decl"/>
 
 	<xsl:template match="b:* | e:* | a:*" mode="decl">

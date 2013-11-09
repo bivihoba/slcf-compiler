@@ -58,7 +58,7 @@
 	</xsl:variable>
 
 	<xsl:variable name="index-bem-tree">
-		<xsl:apply-templates select="exsl:node-set($canonical-bem-tree)" mode="pre" />
+		<xsl:apply-templates select="exsl:node-set($canonical-bem-tree)" mode="decl" />
 	</xsl:variable>
 
 	<xsl:template match="page/page-canvas" xml:space="preserve">
@@ -71,7 +71,7 @@
 				omit-xml-declaration="yes"
 				>
 				<bem-index>
-					<xsl:apply-templates select="exsl:node-set($canonical-bem-tree)" mode="decl"/>
+					<xsl:apply-templates select="exsl:node-set($index-bem-tree)" mode="clean-decl"/>
 				</bem-index>
 				<!--<xsl:apply-templates select="exsl:node-set($index-bem-tree)" mode="decl" />-->
 		</exsl:document>
