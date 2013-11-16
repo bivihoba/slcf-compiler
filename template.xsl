@@ -63,17 +63,18 @@
 
 	<xsl:template match="page/page-canvas" xml:space="preserve">
 
-		<xsl:apply-templates select="exsl:node-set($canonical-bem-tree)" mode="pre" />
+		<xsl:apply-templates select="exsl:node-set($canonical-bem-tree)" />
 
+		<!-- filename param set in command line-->
 		<exsl:document
-				href="index.xml"
+				href="{$filepath}{$filename}.xml"
 				indent="yes"
 				omit-xml-declaration="yes"
 				>
 				<bem-index>
 					<xsl:apply-templates select="exsl:node-set($index-bem-tree)" mode="clean-decl"/>
+					<!--<xsl:apply-templates select="exsl:node-set($canonical-bem-tree)" mode="decl" />-->
 				</bem-index>
-				<!--<xsl:apply-templates select="exsl:node-set($index-bem-tree)" mode="decl" />-->
 		</exsl:document>
 
 	</xsl:template>

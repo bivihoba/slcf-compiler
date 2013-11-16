@@ -22,16 +22,76 @@
 		<!--<xsl:apply-templates select="//page-canvas" mode="decl"/>-->
 	<!--</xsl:template>-->
 
-	<xsl:template match="*" mode="clean-decl"/>
+	<!--<xsl:template match="*" mode="clean-decl"/>-->
 
 	<xsl:template match="*[
-								@type = 'block' and
-								not(preceding-sibling::node()[@type='block' and @block=current()/@block])
+							@type = 'block' and
+							not(preceding-sibling::node()[@type='block' and @block=current()/@block])
+							]" mode="clean-decl">
+		<xsl:copy-of select="."/>
+	</xsl:template>
+	<xsl:template match="*[
+							@type = 'element' and
+							not(preceding-sibling::node()[@type='element' and @block=current()/@block and @element=current()/@element])
+							]" mode="clean-decl">
+		<xsl:copy-of select="."/>
+	</xsl:template>
+	<xsl:template match="*[
+							@type = 'modificator' and
+							@modificator-value and
+							not(@element) and
+							not(preceding-sibling::node()[
+															@type='modificator' and
+															@block=current()/@block and
+															@modificator=current()/@modificator and
+															@modificator-value=current()/@modificator-value
+															])
+							]" mode="clean-decl">
+		<xsl:copy-of select="."/>
+	</xsl:template>
+	<xsl:template match="*[
+							@type = 'modificator' and
+							not(@modificator-value) and
+							not(@element) and
+							not(preceding-sibling::node()[
+															@type='modificator' and
+															@block=current()/@block and
+															@modificator=current()/@modificator and
+															not(@modificator-value)
+															])
+							]" mode="clean-decl">
+		<xsl:copy-of select="."/>
+	</xsl:template>
+	<xsl:template match="*[
+							@type = 'modificator' and
+							@modificator-value and
+							@element and
+							not(preceding-sibling::node()[
+															@type='modificator' and
+															@block=current()/@block and
+															@element=current()/@element and
+															@modificator=current()/@modificator and
+															@modificator-value=current()/@modificator-value
+															])
+							]" mode="clean-decl">
+		<xsl:copy-of select="."/>
+	</xsl:template>
+	<xsl:template match="*[
+							@type = 'modificator' and
+							not(@modificator-value) and
+							@element and
+							not(preceding-sibling::node()[
+															@type='modificator' and
+															@block=current()/@block and
+															@element=current()/@element and
+															@modificator=current()/@modificator and
+															not(@modificator-value)
+															])
 							]" mode="clean-decl">
 		<xsl:copy-of select="."/>
 	</xsl:template>
 
-	<xsl:template match="*" mode="decl"/>
+	<xsl:template match="* | text()" mode="decl"/>
 
 	<xsl:template match="b:* | e:* | a:*" mode="decl">
 		<xsl:apply-templates select="." mode="decl__self"/>
@@ -56,7 +116,7 @@
 			</xsl:element>
 		</xsl:template>
 
-		<xsl:template match="e:* | m:*[@element]" mode="decl__self">
+		<xsl:template match="e:* | m:*[@element] | a:*[@block-of]" mode="decl__self">
 			<xsl:element name="bem-entity">
 				<xsl:attribute name="type">
 					<xsl:apply-templates select="." mode="decl__block-type"/>
@@ -113,7 +173,7 @@
 
 				<xsl:template match="*" mode="decl__block-name"/>
 
-				<xsl:template match="b:*" mode="decl__block-name">
+				<xsl:template match="b:* | a:*" mode="decl__block-name">
 					<xsl:value-of select="local-name()"/>
 				</xsl:template>
 
@@ -123,12 +183,19 @@
 					<xsl:value-of select="local-name()"/>
 				</xsl:template>
 
+				<xsl:template match="a:*" mode="decl__element-name">
+					<xsl:value-of select="local-name()"/>
+				</xsl:template>
+
 				<xsl:template match="m:*" mode="decl__element-name">
 					<xsl:value-of select="@element"/>
 				</xsl:template>
 
-				<xsl:template match="e:* | m:* | a:*" mode="decl__block-name">
+				<xsl:template match="e:* | m:*" mode="decl__block-name">
 					<xsl:value-of select="@block"/>
+				</xsl:template>
+				<xsl:template match="a:*[@block-of]" mode="decl__block-name">
+					<xsl:value-of select="@block-of"/>
 				</xsl:template>
 
 				<xsl:template match="*" mode="decl__modificator-name"/>
