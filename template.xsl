@@ -68,7 +68,7 @@
 		<!-- filename param set in command line-->
 		<exsl:document
 				href="{$filepath}{$filename}.xml"
-				indent="yes"
+				indent="no"
 				omit-xml-declaration="yes"
 				>
 				<bem-index>
