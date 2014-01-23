@@ -135,16 +135,16 @@
 			</xsl:template>
 
 			<xsl:template match="m:*" mode="decl__self-attrs">
-				<xsl:attribute name="modificator">
+				<xsl:attribute name="modifier">
 					<xsl:apply-templates select="." mode="decl__modificator-name"/>
 				</xsl:attribute>
 			</xsl:template>
 
 			<xsl:template match="m:*[@val]" mode="decl__self-attrs">
-				<xsl:attribute name="modificator">
+				<xsl:attribute name="modifier">
 					<xsl:apply-templates select="." mode="decl__modificator-name"/>
 				</xsl:attribute>
-				<xsl:attribute name="modificator-value">
+				<xsl:attribute name="modifier-value">
 					<xsl:apply-templates select="." mode="decl__modificator-value"/>
 				</xsl:attribute>
 			</xsl:template>
