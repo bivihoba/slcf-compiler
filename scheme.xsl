@@ -160,7 +160,7 @@
 				</xsl:template>
 
 				<xsl:template match="m:*" mode="decl__block-type">
-					<xsl:value-of select="'modificator'"/>
+					<xsl:value-of select="'modifier'"/>
 				</xsl:template>
 
 				<xsl:template match="a:*" mode="decl__block-type">
