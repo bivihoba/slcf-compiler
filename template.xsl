@@ -67,7 +67,7 @@
 
 		<!-- filename param set in command line-->
 		<exsl:document
-				href="{$filepath}{$filename}.xml"
+				href="{$filepath}{$filename}"
 				indent="no"
 				omit-xml-declaration="yes"
 				>
