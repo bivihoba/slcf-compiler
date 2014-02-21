@@ -32,5 +32,4 @@
 	indent="yes"
 	/>
 <xsl:template match="page" xml:space="preserve"><xsl:apply-templates select="page-canvas" /></xsl:template>
-
 </xsl:stylesheet>

@@ -61,29 +61,11 @@
 		<xsl:apply-templates select="exsl:node-set($canonical-bem-tree)" mode="decl" />
 	</xsl:variable>
 
-	<xsl:template match="page/page-canvas" xml:space="preserve">
-
-		<xsl:apply-templates select="exsl:node-set($canonical-bem-tree)" />
-
-		<!-- filename param set in command line-->
-		<exsl:document
-				href="{$filepath}{$filename}"
-				indent="no"
-				omit-xml-declaration="yes"
-				>
-				<bem-index>
-					<xsl:apply-templates select="exsl:node-set($index-bem-tree)" mode="clean-decl"/>
-					<!--<xsl:apply-templates select="exsl:node-set($canonical-bem-tree)" mode="decl" />-->
-				</bem-index>
-		</exsl:document>
-
-	</xsl:template>
-
-	<!--<xsl:template match="page/page-canvas" xml:space="preserve"><xsl:apply-templates select="exsl:node-set($canonical-bem-tree)" mode="pre" /></xsl:template>-->
-	<!--<xsl:template match="page/page-canvas" xml:space="preserve"><xsl:apply-templates select="exsl:node-set($block-bem-tree)" /></xsl:template>-->
-	<!--<xsl:template match="page/page-canvas" xml:space="preserve"><xsl:apply-templates select="exsl:node-set($block-bem-tree)" mode="pre" /></xsl:template>-->
-	<!--<xsl:template match="page/page-canvas" xml:space="preserve"><xsl:apply-templates select="exsl:node-set($rendering-tree)" /></xsl:template>-->
-	<!--<xsl:template match="page/page-canvas" xml:space="preserve"><xsl:apply-templates select="exsl:node-set($rendering-tree)" mode="pre" /></xsl:template>-->
+	<!-- filename param set in command line-->
+<xsl:template match="page/page-canvas" xml:space="preserve"><xsl:apply-templates select="exsl:node-set($canonical-bem-tree)" />
+<exsl:document href="{$filepath}{$filename}" indent="no" omit-xml-declaration="yes"
+><bem-index><xsl:apply-templates select="exsl:node-set($index-bem-tree)" mode="clean-decl"/></bem-index></exsl:document>
+</xsl:template>
 
 	<!--Собираем дерево всей страницы > -->
 
