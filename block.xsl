@@ -15,6 +15,7 @@
 				xmlns:c="child"
 				xmlns:un="http://slcf/templates/settings/bem-scheme/unknown-namespace"
 				xmlns:alxc="http://slcf/templates/settings/bem-scheme/additional-legacy-xhtml-class"
+				xmlns:xlink="http://www.w3.org/1999/xlink"
 				xmlns:exsl="http://exslt.org/common"
 				exclude-result-prefixes="a b c e x d p m t alxc un"
 				extension-element-prefixes="exsl"
@@ -125,6 +126,7 @@
 	<xsl:template match="*" mode="namespace">
 		<xsl:copy-of select="namespace::*[not(local-name() = 'b') and not(local-name() = 'e') and not(local-name() = 'm') and not(local-name() = 'x') and not(local-name() = 'alxc')]"/>
 		<xsl:copy-of select="a:*/namespace::*[not(local-name() = 'a') and not(local-name() = 'b') and not(local-name() = 'e') and not(local-name() = 'm') and not(local-name() = 'x') and not(local-name() = 'alxc')]"/>
+		<xsl:copy-of select="@*[name() = 'xlink:href']"/> <!-- TT -->
 	</xsl:template>
 
 	<xsl:template match="*" mode="content"/>
