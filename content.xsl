@@ -18,8 +18,13 @@
 				extension-element-prefixes="exsl">
 
 	<xsl:template match="d:*" mode="data" xml:space="preserve">
+		<xsl:apply-templates mode="data"/>
+	</xsl:template>
+
+	<xsl:template match="d:*[//data/*[local-name() = local-name(current())]]" mode="data" xml:space="preserve">
 		<xsl:apply-templates select="//data[not(following-sibling::data/*[local-name() = local-name(current())])]/*[local-name() = local-name(current())]" mode="data"/>
 	</xsl:template>
-	<xsl:template match="*" mode="data"><xsl:apply-imports/></xsl:template>
+
+	<xsl:template match="*" mode="data"><xsl:apply-imports/><xsl:apply-templates mode="data"/></xsl:template>
 
 </xsl:stylesheet>
