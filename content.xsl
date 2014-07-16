@@ -24,6 +24,6 @@
 											not(../following-sibling::data/*[local-name() = local-name(current())])
 									]/*[local-name() = local-name(current())]" mode="data"/>
 	</xsl:template>
-	<xsl:template match="*" mode="data"><xsl:apply-imports/></xsl:template>
+	<xsl:template match="*|text()" mode="data"><xsl:apply-imports/></xsl:template>
 
 </xsl:stylesheet>
