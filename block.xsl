@@ -88,7 +88,8 @@
 	 					 e:*[ancestor::node()/@tag='dt'] |
 	 					 b:*[ancestor::node()/@tag='abbr'] |
 	 					 e:*[ancestor::node()/@tag='abbr'] |
-	 					 e:*[ancestor::node()/@tag='button']
+	 					 e:*[ancestor::node()/@tag='button'] |
+	 					 e:*[ancestor::node()/@tag='cite']
 	 					 " mode="default">
 		<xsl:apply-templates select="." mode="tag">
 			<xsl:with-param name="tag" select="'span'" />
